@@ -9,6 +9,17 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UITextField *usernameField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordField;
+@property (strong, nonatomic) IBOutlet UIButton *maleButton;
+@property (strong, nonatomic) IBOutlet UIButton *femaleButton;
+@property (strong, nonatomic) NSString *userGender;
+@property (strong, nonatomic) IBOutlet UITextField *emailField;
+
+- (IBAction)signUpButtonPressed:(id)sender;
+- (IBAction)femaleButtonPressed:(id)sender;
+- (IBAction)maleButtonPressed:(id)sender;
+- (IBAction)loginButtonPressed:(id)sender;
 
 
 @end
