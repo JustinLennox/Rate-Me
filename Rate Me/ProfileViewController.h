@@ -18,19 +18,20 @@
 #import "UIButton+WebCache.h"
 #import "UIImage+WebP.h"
 
-//#import "UIImage+fixOrientation.h"
-
 @interface ProfileViewController : UIViewController
 
 //UI Photo Buttons
 
 - (IBAction)mainPhotoButtonPressed:(id)sender;
+- (IBAction)photoButton1Pressed:(id)sender;
 - (IBAction)photoButton2Pressed:(id)sender;
 - (IBAction)photoButton3Pressed:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIButton *mainPhotoButton;
+@property (weak, nonatomic) IBOutlet UIButton *photoButton1;
 @property (strong, nonatomic) IBOutlet UIButton *photoButton2;
 @property (strong, nonatomic) IBOutlet UIButton *photoButton3;
+@property (strong, nonatomic) IBOutlet UILabel *photoLabel;
 
 //placeholders for the buttons
 @property (strong, nonatomic) UIImageView *image1;
@@ -39,8 +40,7 @@
 
 //Photo Library Buttons
 - (IBAction)choosePhoto1:(id)sender;
-- (IBAction)choosePhoto2:(id)sender;
-- (IBAction)choosePhoto3:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *photoLibraryButton;
 
 //image picker stuff
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
@@ -53,11 +53,23 @@
 @property (strong, nonatomic) PFUser *currentUser;
 @property (strong, nonatomic) PFObject *userObject;
 @property (strong, nonatomic) NSString *isImagePickerHappening;
-@property (weak, nonatomic) IBOutlet UIButton *enableCommentButton;
+
 @property (strong, nonatomic) NSString *commentString;
-- (IBAction)enableCommentsPressed:(id)sender;
+
+//Username
+@property (strong, nonatomic) IBOutlet UILabel *usernameLabel;
+
+//Switches
+@property (strong, nonatomic) IBOutlet UISwitch *allowCommentSwitch;
+@property (strong, nonatomic) IBOutlet UISwitch *hideRatingSwitch;
+- (IBAction)allowCommentSwitchPressed:(id)sender;
+- (IBAction)hideRatingSwitchPressed:(id)sender;
+
+//ModalView Presentation
+@property (strong, nonatomic) IBOutlet UIButton *doneButton;
+- (IBAction)doneButtonPressed:(id)sender;
 
 
-
+@property (strong, nonatomic) IBOutlet UIImageView *cameraImage;
 
 @end

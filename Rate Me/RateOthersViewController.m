@@ -18,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,10 +30,16 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    [self.rateButton setBackgroundImage:[UIImage imageNamed:@"3DYellowButton.png"] forState:UIControlStateNormal];
+    [self.rateButton setBackgroundImage:[UIImage imageNamed:@"3DYellowButtonPressed.png"] forState:UIControlStateHighlighted];
+    [self.rateButton setBackgroundImage:[UIImage imageNamed:@"3DYellowButtonPressed.png"] forState:UIControlStateSelected];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationItem.title = @"Rate Others";
+    
     self.commentTextView.alpha = 0.0f;
     self.commentButton.alpha = 0.0f;
     self.currentUserNumber = 0;
-    [self roundButtons];
     
     //Load the users to be rated
     [self loadNewUsersAndAd];
@@ -44,6 +52,24 @@
     
     self.commentTextView.delegate = self;
     
+    [self.reportButton setBackgroundImage:[UIImage imageNamed:@"RedOutline"] forState:UIControlStateNormal];
+    [self.reportButton setBackgroundImage:[UIImage imageNamed:@"RedButton"] forState:UIControlStateHighlighted];
+    [self.reportButton setBackgroundImage:[UIImage imageNamed:@"RedButton"] forState:UIControlStateSelected];
+    [self.reportButton setBackgroundImage:[UIImage imageNamed:@"RedButton"] forState:UIControlStateDisabled];
+    [self.reportButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    [self.reportButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+    [self.reportButton setTitleColor:[UIColor whiteColor] forState:UIControlStateDisabled];
+    
+    [self.commentButton setBackgroundImage:[UIImage imageNamed:@"OutlineButton"] forState:UIControlStateNormal];
+    [self.commentButton setBackgroundImage:[UIImage imageNamed:@"BlueButton"] forState:UIControlStateHighlighted];
+    [self.commentButton setBackgroundImage:[UIImage imageNamed:@"BlueButton"] forState:UIControlStateSelected];
+    [self.commentButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    [self.commentButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+    [self.commentButton setTitleColor:[UIColor whiteColor] forState:UIControlStateDisabled];
+    
+    self.buttonArray = @[self.rating1Button, self.rating2Button, self.rating3Button, self.rating4Button, self.rating5Button, self.rating6Button, self.rating6Button, self.rating7Button, self.rating8Button, self.rating9Button, self.rating10Button];
+    
+        [self roundButtons];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -86,55 +112,86 @@
 - (IBAction)rating1Pressed:(id)sender {
     self.finalRating = @1;
      self.rateButton.enabled = YES;
+    [self unhighlightButtons];
+    [self.rating1Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.rating1Button setBackgroundColor:[UIColor colorWithRed:(2.00f/255.00f) green:(186.00f/255.00f) blue:(242.00f/255.00f) alpha:1.0f]];
 }
 
 - (IBAction)rating2Pressed:(id)sender {
     self.finalRating = @2;
      self.rateButton.enabled = YES;
+    [self unhighlightButtons];
+    [self.rating2Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.rating2Button setBackgroundColor:[UIColor colorWithRed:(2.00f/255.00f) green:(186.00f/255.00f) blue:(242.00f/255.00f) alpha:1.0f]];
 }
 
 - (IBAction)rating3Pressed:(id)sender {
     self.finalRating = @3;
      self.rateButton.enabled = YES;
+    [self unhighlightButtons];
+    [self.rating3Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.rating3Button setBackgroundColor:[UIColor colorWithRed:(2.00f/255.00f) green:(186.00f/255.00f) blue:(242.00f/255.00f) alpha:1.0f]];
 }
 
 - (IBAction)rating4Pressed:(id)sender {
     self.finalRating = @4;
      self.rateButton.enabled = YES;
+    [self unhighlightButtons];
+    [self.rating4Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.rating4Button setBackgroundColor:[UIColor colorWithRed:(2.00f/255.00f) green:(186.00f/255.00f) blue:(242.00f/255.00f) alpha:1.0f]];
 }
 
 - (IBAction)rating5Pressed:(id)sender {
     self.finalRating = @5;
      self.rateButton.enabled = YES;
+    [self unhighlightButtons];
+    [self.rating5Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.rating5Button setBackgroundColor:[UIColor colorWithRed:(2.00f/255.00f) green:(186.00f/255.00f) blue:(242.00f/255.00f) alpha:1.0f]];
 }
 
 - (IBAction)rating6Pressed:(id)sender {
     self.finalRating = @6;
      self.rateButton.enabled = YES;
+    [self unhighlightButtons];
+    [self.rating6Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.rating6Button setBackgroundColor:[UIColor colorWithRed:(2.00f/255.00f) green:(186.00f/255.00f) blue:(242.00f/255.00f) alpha:1.0f]];
 }
 
 - (IBAction)rating7Pressed:(id)sender {
     self.finalRating = @7;
      self.rateButton.enabled = YES;
+    [self unhighlightButtons];
+    [self.rating7Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.rating7Button setBackgroundColor:[UIColor colorWithRed:(2.00f/255.00f) green:(186.00f/255.00f) blue:(242.00f/255.00f) alpha:1.0f]];
 }
 
 - (IBAction)rating8Pressed:(id)sender {
     self.finalRating = @8;
      self.rateButton.enabled = YES;
+    [self unhighlightButtons];
+    [self.rating8Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.rating8Button setBackgroundColor:[UIColor colorWithRed:(2.00f/255.00f) green:(186.00f/255.00f) blue:(242.00f/255.00f) alpha:1.0f]];
 }
 
 - (IBAction)rating9Pressed:(id)sender {
     self.finalRating = @9;
      self.rateButton.enabled = YES;
+    [self unhighlightButtons];
+    [self.rating9Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.rating9Button setBackgroundColor:[UIColor colorWithRed:(2.00f/255.00f) green:(186.00f/255.00f) blue:(242.00f/255.00f) alpha:1.0f]];
 }
 
 - (IBAction)rating10Pressed:(id)sender {
     self.finalRating = @10;
     self.rateButton.enabled = YES;
+    [self unhighlightButtons];
+    [self.rating10Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.rating10Button setBackgroundColor:[UIColor colorWithRed:(2.00f/255.00f) green:(186.00f/255.00f) blue:(242.00f/255.00f) alpha:1.0f]];
 }
 
 - (IBAction)rateButtonPressed:(id)sender {
     if(self.finalRating){
+        self.rateButton.enabled = NO;
         NSLog(@"User:%i; rating:%@", self.currentUserNumber, self.finalRating);
         
         [[self.currentRatingUser objectForKey:@"overallRatingArray"] addObject:self.finalRating];
@@ -151,14 +208,17 @@
             }else{
                self.finalString = [NSString stringWithFormat:@"%@%@", self.commentTextView.text, @"f"];
             }
-            NSLog(@"%@", self.finalString);
             
             //Check to make sure they have a comments dictionary
             if([self.currentRatingUser objectForKey:@"commentsDictionary"])
             {
-                NSMutableDictionary *commentsDictionary = [NSMutableDictionary dictionaryWithDictionary:[self.currentRatingUser objectForKey:@"commentsDictionary"]];
-                [commentsDictionary setObject:self.finalString forKey:self.currentUser.username];
-                [self.currentRatingUser setObject:commentsDictionary forKey:@"commentsDictionary"];
+                NSDictionary *commentsDictionary = [NSDictionary dictionaryWithDictionary:[self.currentRatingUser objectForKey:@"commentsDictionary"]];
+                NSMutableDictionary *mutableCommentsDictionary = [NSMutableDictionary dictionaryWithDictionary:[commentsDictionary mutableCopy]];
+                NSLog(@"Comments Dictionary: %@", commentsDictionary);
+                NSLog(@"Final String: %@", self.finalString);
+                
+                [mutableCommentsDictionary setObject:self.finalString forKey:[NSString stringWithFormat:@"%@", [[PFUser currentUser] username]]];
+                [self.currentRatingUser setObject:mutableCommentsDictionary forKey:@"commentsDictionary"];
             }else{
                 NSMutableDictionary *commentsDictionary = [[NSMutableDictionary alloc] init];
                 [commentsDictionary setObject:self.finalString forKey:self.currentUser.username];
@@ -170,7 +230,7 @@
        //NSMutableArray *newUsersArray = [NSMutableArray arrayWithArray:self.usersArray];
         //[newUsersArray replaceObjectAtIndex:self.currentUserNumber withObject:self.currentRatingUser];
         
-        if(self.currentUserNumber == 5){
+        //if(self.currentUserNumber == 5){
        [PFObject saveAllInBackground:self.usersArray block:^(BOOL succeeded, NSError *error) {
             if(error){
                 
@@ -178,7 +238,7 @@
                 NSLog(@"Yup we're saving");
             }
         }];
-        }
+        //}
        /*[self.currentRatingUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if(error){
                 
@@ -191,6 +251,7 @@
         self.commentTextView.alpha = 0.0f;
         self.commentButton.alpha = 0.0f;
         self.currentUserNumber++;
+        [self unhighlightButtons];
         [self loadNewImages];
     }
     
@@ -218,7 +279,7 @@
         }
         
         if([self.currentRatingUser objectForKey:@"photo1"]){
-            self.rateButton.enabled = YES;
+            //self.rateButton.enabled = YES;
             self.reportButton.enabled = YES;
             PFFile *imageFile1 = [self.currentRatingUser objectForKey:@"photo1"];
             NSURL *imageFileUrl1 = [[NSURL alloc] initWithString:imageFile1.url];
@@ -304,6 +365,7 @@
     
 }
 
+#pragma mark - format button methods
 
 -(void)roundButtons{
     
@@ -320,13 +382,28 @@
     self.thumbButton3
     .layer.borderWidth = 0;
     
+    for(UIButton *button in self.buttonArray){
+        button.layer.cornerRadius = button.bounds.size.width / 2.0;
+        button.layer.borderWidth = 0.8;
+        button.layer.borderColor = [UIColor colorWithRed:(2.00f/255.00f) green:(186.00f/255.00f) blue:(242.00f/255.00f) alpha:1.0f].CGColor;
+    }
+    
+}
+
+-(void)unhighlightButtons{
+    for(UIButton *button in self.buttonArray)
+    {
+        [button setTitleColor:[UIColor colorWithRed:(2.00f/255.00f) green:(186.00f/255.00f) blue:(242.00f/255.00f) alpha:1.0f] forState:UIControlStateNormal];
+        [button setBackgroundColor:[UIColor whiteColor]];
+    }
 }
 
 //Comment Methods
 
 - (IBAction)commentButtonPressed:(id)sender {
     
-    self.commentTextView.alpha = 1.0f;
+    self.commentTextView.alpha = 0.5f;
+    [self.commentTextView becomeFirstResponder];
     
 }
 
@@ -357,10 +434,13 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.commentTextView resignFirstResponder];
+     self.commentTextView.alpha = 0.0f;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
+    textField.alpha = 0.0f;
+    self.commentTextView.alpha = 0.0f;
     return NO;
 }
 

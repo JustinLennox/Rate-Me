@@ -7,6 +7,7 @@
 //
 
 #import "CommentsViewController.h"
+#import "OtherProfileViewController.h"
 
 @interface CommentsViewController ()
 
@@ -30,22 +31,20 @@
     self.lastCommentY = 50;
     self.commentNumber = 0;
     
-    for(NSString *comment in [self.userObject objectForKey:@"commentsDictionary"])
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationItem.title = @"Comments";
+    
+    for(id key in [self.userObject objectForKey:@"commentsDictionary"])
     {
-        UIButton *commentButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        NSString *commentString = [[self.userObject objectForKey:@"commentsDictionary"] objectAtIndex:self.commentNumber];
-        commentButton.frame = CGRectMake(50, self.lastCommentY+10, 200, 25);
-        self.lastCommentY += 30;
+        CommentButton *commentButton = [CommentButton buttonWithType:UIButtonTypeRoundedRect];
+        NSString *commentString = [[self.userObject objectForKey:@"commentsDictionary"] objectForKey:key];
+        NSLog(@"comment: %@", commentString);
+        commentButton.frame = CGRectMake(10, self.lastCommentY+10, 200, 25);
+        self.lastCommentY += 35;
         commentButton.alpha = 1.0f;
-        commentButton.titleLabel.textColor = [UIColor whiteColor];
         
         NSString *genderLetter = [commentString substringWithRange:NSMakeRange(commentString.length-1, 1)];
-        NSLog(@"Gender: %@", genderLetter);
-        if([genderLetter isEqualToString:@"m"]){
-            commentButton.backgroundColor = [UIColor grayColor];
-        }else{
-            commentButton.backgroundColor = [UIColor blueColor];
-        }
+
         
         if(commentString.length <= 120){
             commentString = [commentString substringWithRange:NSMakeRange(0, commentString.length-1)];
@@ -53,14 +52,39 @@
              commentString = [commentString substringWithRange:NSMakeRange(0, 120)];
         }
         
-        NSLog(@"%@",[[self.userObject objectForKey:@"commentsArray"] objectAtIndex:self.commentNumber]);
+        if(commentString.length > 25 && commentString.length <= 50){
+            commentString = [NSString stringWithFormat:@"%@\n%@", [commentString substringWithRange:NSMakeRange(0, 25)], [commentString substringWithRange:NSMakeRange(25, commentString.length-25)]];
+        }else if(commentString.length > 50){
+            commentString = [NSString stringWithFormat:@"%@\n%@\n%@", [commentString substringWithRange:NSMakeRange(0, 25)], [commentString substringWithRange:NSMakeRange(25, 25)], [commentString substringWithRange:NSMakeRange(50, commentString.length-50)]];
+        }
+        
+        
         [commentButton setTitle:commentString forState:UIControlStateNormal];
-        commentButton.titleLabel.numberOfLines = 3;
-        commentButton.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        
-        
-        
         [commentButton sizeToFit];
+        commentButton.frame = CGRectMake(commentButton.frame.origin.x, commentButton.frame.origin.y, commentButton.frame.size.width+10, commentButton.frame.size.height);
+        [[commentButton layer] setBorderWidth:0.8f];
+        commentButton.layer.cornerRadius = 4;
+        commentButton.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        commentButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+
+        
+        if([genderLetter isEqualToString:@"m"]){
+            [commentButton setTitleColor:[UIColor colorWithRed:(2.00f/255.00f) green:(186.00f/255.00f) blue:(242.00f/255.00f) alpha:1.0f] forState:UIControlStateNormal];
+            [[commentButton layer] setBorderColor:[UIColor colorWithRed:(2.00f/255.00f) green:(186.00f/255.00f) blue:(242.00f/255.00f) alpha:1.0f].CGColor];
+        }else{
+             [commentButton setTitleColor:[UIColor colorWithRed:(248.00f/255.00f) green:(69.00f/255.00f) blue:(69.00f/255.00f) alpha:1.0f] forState:UIControlStateNormal];
+            [[commentButton layer] setBorderColor:[UIColor colorWithRed:(248.00f/255.00f) green:(69.00f/255.00f) blue:(69.00f/255.00f) alpha:1.0f].CGColor];
+
+        }
+        
+        commentButton.contentMode = UIViewContentModeScaleAspectFill;
+        
+        //Make it so that pressing the comment loads the user's profile
+        commentButton.username = [NSString stringWithFormat:@"%@", key];
+        [commentButton addTarget:self
+                   action:@selector(loadProfile:)
+         forControlEvents:UIControlEventTouchUpInside];
+        
         [self.regularView addSubview:commentButton];
         
         self.commentNumber++;
@@ -73,14 +97,42 @@
 
 }
 
-/*
+-(void)loadProfile:(CommentButton *)sender {
+    NSString *username = sender.username;
+    
+    self.usersQuery = [PFQuery queryWithClassName:@"UserObjects"];
+    [self.usersQuery whereKey:@"username" equalTo:username];
+    [self.usersQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        self.queryingForUsers = YES;
+        if (error) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"It looks like we couldn't find the user! Make sure you're connected to the internet." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [alertView show];
+            self.queryingForUsers = NO;
+        }
+        else {
+            NSLog(@"We found messages!");
+            // We found messages!
+            self.usersArray = objects;
+            [self performSegueWithIdentifier:@"showUserProfile" sender:self];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.queryingForUsers = NO;
+            });
+            
+        }
+        
+    }];
+
+
+}
+
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+     if([segue.identifier isEqualToString:@"showUserProfile"]) {
+        OtherProfileViewController *controller = (OtherProfileViewController *)segue.destinationViewController;
+        controller.userObject = [self.usersArray objectAtIndex:0];
+ }
+ }
 
 @end

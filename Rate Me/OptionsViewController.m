@@ -7,6 +7,7 @@
 //
 
 #import "OptionsViewController.h"
+#import "ProfileViewController.h"
 
 @interface OptionsViewController ()
 
@@ -24,42 +25,64 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
-    self.noThanksButton.alpha = 0.0f;
-    self.darkBackground.alpha = 0.0f;
-    self.getRatedLabel.alpha = 0.0f;
-    self.getRatedCaptionLabel.alpha = 0.0f;
-    self.chooseFromPhotosButton.alpha = 0.0f;
-    self.doneButton.alpha = 0.0f;
-    self.mainPhotoButton.alpha = 0.0f;
     
     PFUser *currentUser = [PFUser currentUser];
     if(!currentUser){
         [self performSegueWithIdentifier:@"showLogin" sender:self];
     }
     
-    if([[NSUserDefaults standardUserDefaults] boolForKey:@"firstTime"]){
-        self.noThanksButton.alpha = 1.0f;
-        self.darkBackground.alpha = 0.7f;
-        self.getRatedLabel.alpha = 1.0f;
-        self.getRatedCaptionLabel.alpha = 1.0f;
-        self.chooseFromPhotosButton.alpha = 1.0f;
-        self.mainPhotoButton.alpha = 1.0f;
-        self.myRatingButton.enabled = NO;
-        self.rateOthersButton.enabled = NO;
-        self.top10Button.enabled = NO;
-    }
+    [self.myRatingButton setBackgroundImage:[UIImage imageNamed:@"3DBlueButton.png"] forState:UIControlStateNormal];
+    [self.myRatingButton setBackgroundImage:[UIImage imageNamed:@"3DBlueButtonPressed.png"] forState:UIControlStateSelected];
+    [self.myRatingButton setBackgroundImage:[UIImage imageNamed:@"3DBlueButtonPressed.png"] forState:UIControlStateHighlighted];
     
-    if([self.imageJustPicked isEqualToString:@"YES"]){
-        self.doneButton.alpha = 1.0f;
-    }
+    [self.rateOthersButton setBackgroundImage:[UIImage imageNamed:@"3DYellowButton.png"] forState:UIControlStateNormal];
+    [self.rateOthersButton setBackgroundImage:[UIImage imageNamed:@"3DYellowButtonPressed.png"] forState:UIControlStateSelected];
+    [self.rateOthersButton setBackgroundImage:[UIImage imageNamed:@"3DYellowButtonPressed.png"] forState:UIControlStateHighlighted];
+
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(250.00f/255.00f) green:(212.00f/255.00f) blue:(107.00f/255.00f) alpha:1.0f];
+    self.navigationController.navigationBar.translucent = NO;
+    
+    
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationItem.title = @"Rate Me!";
+
+
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self.navigationController.navigationBar setHidden:NO];
+    
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"firstTime"] == YES){
+
+        self.myRatingButton.enabled = NO;
+        self.rateOthersButton.enabled = NO;
+        self.top10Button.enabled = NO;
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ProfileViewController *profileView = [storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"];
+        [self setModalPresentationStyle:UIModalPresentationFullScreen];
+        [self presentViewController:profileView animated:YES completion:nil];
+        
+        //ProfileViewController *profileViewController = [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
+        //profileViewController.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+        //self.navigationController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        //[self presentViewController:profileViewController animated:YES completion:^{
+        //[self.view.window.rootViewController presentViewController:profileView];
+            //[[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstTime"];
+            //[[NSUserDefaults standardUserDefaults] synchronize];
+        //}];
+        
+    }else{
+        self.myRatingButton.enabled = YES;
+        self.rateOthersButton.enabled = YES;
+        self.top10Button.enabled = YES;
+    }
+    
+
 }
 
 
@@ -70,125 +93,4 @@
     // Pass the selected object to the new view controller.
 }
 
-#pragma mark- initial photo prompt buttons
-- (IBAction)noThanksButtonPressed:(id)sender {
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstTime"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    self.mainPhotoButton.alpha = 0.0f;
-    self.noThanksButton.alpha = 0.0f;
-    self.darkBackground.alpha = 0.0f;
-    self.getRatedLabel.alpha = 0.0f;
-    self.getRatedCaptionLabel.alpha = 0.0f;
-    self.chooseFromPhotosButton.alpha = 0.0f;
-    self.myRatingButton.enabled = YES;
-    self.rateOthersButton.enabled = YES;
-    self.top10Button.enabled = YES;
-}
-- (IBAction)chooseFromPhotosPressed:(id)sender {
-    [self presentPhotoLibrary];
-}
-
-- (IBAction)mainPhotoButtonPressed:(id)sender {
-    
-        [self presentImagePicker];
-}
-#pragma mark - imagePickerMethods
-
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    self.imageJustPicked = @"YES";
-    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
-    if ([mediaType isEqualToString:(NSString *)kUTTypeImage]){
-        //A photo was taken or selected
-        self.image = [info objectForKey:UIImagePickerControllerOriginalImage];
-        [self.image fixOrientation];
-            [self.mainPhotoButton setBackgroundImage:self.image forState:UIControlStateNormal];
-            NSData *fileData = UIImageJPEGRepresentation(self.image, 1.0);
-            NSString *fileName = @"photo1";
-            self.file = [PFFile fileWithName:fileName data:fileData];
-    }
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
--(void)presentImagePicker{
-    
-    self.imagePicker = [[UIImagePickerController alloc] init];
-    self.imagePicker.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeImage, nil];
-    self.imagePicker.delegate = self;
-    self.imagePicker.allowsEditing = YES;
-    
-    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-        self.imagePicker.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeImage, nil];
-        self.imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        self.imagePicker.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeImage, nil];
-        self.imagePicker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
-        
-    }else{
-        self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        
-    }
-    
-    self.imagePicker.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeImage, nil];
-    [self presentViewController:self.imagePicker animated:NO completion:nil];
-    
-    
-}
-
--(void)presentPhotoLibrary{
-
-    self.imagePicker = [[UIImagePickerController alloc] init];
-    self.imagePicker.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeImage, nil];
-    self.imagePicker.delegate = self;
-    self.imagePicker.allowsEditing = NO;
-    
-    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]){
-        self.imagePicker.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeImage, nil];
-        self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        [self presentViewController:self.imagePicker animated:NO completion:nil];
-    }
-    
-    
-    
-}
-
-
-- (IBAction)doneButtonPressed:(id)sender {
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"UserObjects"];
-    [query whereKey:@"username" equalTo:[[PFUser currentUser] username]];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (error) {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry!" message:@"It looks like we couldn't update your current games! Make sure you're connected to the internet." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-            [alertView show];
-        }
-        else {
-            self.userObject = [objects objectAtIndex:0];
-            [self.userObject setObject:self.file forKey:@"photo1"];
-            [self.userObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if (error) {
-                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"An error occurred!" message:@"Make sure you're connected to the internet and try choosing your picture again!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-                    [alertView show];
-                }else{
-                    NSLog(@"Saving!");
-                }
-            }];
-            //We found objects!
-            
-        }
-    }];
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstTime"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    self.doneButton.alpha = 0.0f;
-    self.mainPhotoButton.alpha = 0.0f;
-    self.noThanksButton.alpha = 0.0f;
-    self.darkBackground.alpha = 0.0f;
-    self.getRatedLabel.alpha = 0.0f;
-    self.getRatedCaptionLabel.alpha = 0.0f;
-    self.chooseFromPhotosButton.alpha = 0.0f;
-    self.myRatingButton.enabled = YES;
-    self.rateOthersButton.enabled = YES;
-    self.top10Button.enabled = YES;
-
-
-}
 @end

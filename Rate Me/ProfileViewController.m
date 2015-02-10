@@ -27,6 +27,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self roundButtons];
     
     PFQuery *query = [PFQuery queryWithClassName:@"UserObjects"];
     [query whereKey:@"username" equalTo:[[PFUser currentUser] username]];
@@ -40,13 +41,37 @@
             //We found objects!
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self loadProfileImages];
+                self.usernameLabel.text = [NSString stringWithFormat:@"%@'s Profile", [[PFUser currentUser] username]];
+                [self updateSwitches];
             });
 
         }
         
     }];
 
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationItem.title = @"Profile";
     
+    [self.photoLibraryButton setBackgroundImage:[UIImage imageNamed:@"BlueButton.png"] forState:UIControlStateHighlighted];
+    [self.photoLibraryButton setBackgroundImage:[UIImage imageNamed:@"BlueButton.png"] forState:UIControlStateSelected];
+    [self.photoLibraryButton setBackgroundImage:[UIImage imageNamed:@"OutlineButton.png"] forState:UIControlStateNormal];
+    
+    self.whichImagePicking = @"1";
+    self.cameraImage.alpha = 0.0f;
+    self.photoLabel.alpha = 0.0f;
+    
+    
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"firstTime"] == YES)
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstTime"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        self.cameraImage.alpha = 1.0f;
+        self.photoLabel.alpha = 1.0f;
+        self.photoLabel.text = @"Main Photo";
+        self.doneButton.alpha = 1.0f;
+    }else{
+        self.doneButton.alpha = 0.0f;
+    }
 
 }
 
@@ -69,19 +94,54 @@
 
 
 - (IBAction)mainPhotoButtonPressed:(id)sender {
-    self.whichImagePicking = @"1";
     [self presentImagePicker];
+}
+
+- (IBAction)photoButton1Pressed:(id)sender {
+    self.whichImagePicking = @"1";
+    if([self.userObject objectForKey:@"photo1"]){
+        [self.mainPhotoButton setImage:self.photoButton1.imageView.image forState:UIControlStateNormal];
+        self.cameraImage.alpha = 0.0f;
+        self.photoLabel.alpha = 0.0f;
+        self.photoLabel.text = nil;
+    }else{
+        [self.mainPhotoButton setImage:nil forState:UIControlStateNormal];
+        self.cameraImage.alpha = 1.0f;
+        self.photoLabel.alpha = 1.0f;
+        self.photoLabel.text = @"Main Photo";
+    }
 }
 
 
 - (IBAction)photoButton2Pressed:(id)sender {
     self.whichImagePicking = @"2";
-    [self presentImagePicker];
+    if([self.userObject objectForKey:@"photo2"]){
+        [self.mainPhotoButton setImage:self.photoButton2.imageView.image forState:UIControlStateNormal];
+        self.cameraImage.alpha = 0.0f;
+        self.photoLabel.alpha = 0.0f;
+        self.photoLabel.text = nil;
+    }else{
+        [self.mainPhotoButton setImage:nil forState:UIControlStateNormal];
+        self.cameraImage.alpha = 1.0f;
+        self.photoLabel.alpha = 1.0f;
+        self.photoLabel.text = @"Photo 2";
+        
+    }
 }
 
 - (IBAction)photoButton3Pressed:(id)sender {
     self.whichImagePicking = @"3";
-    [self presentImagePicker];
+    if([self.userObject objectForKey:@"photo3"]){
+         [self.mainPhotoButton setImage:self.photoButton3.imageView.image forState:UIControlStateNormal];
+        self.cameraImage.alpha = 0.0f;
+        self.photoLabel.alpha = 0.0f;
+        self.photoLabel.text = nil;
+    }else{
+        [self.mainPhotoButton setImage:nil forState:UIControlStateNormal];
+        self.cameraImage.alpha = 1.0f;
+        self.photoLabel.alpha = 1.0f;
+        self.photoLabel.text = @"Photo 3";
+    }
 }
 
 #pragma mark - imagePickerMethods
@@ -94,21 +154,24 @@
         self.image = [info objectForKey:UIImagePickerControllerOriginalImage];
         [self.image fixOrientation];
         if([self.whichImagePicking isEqualToString:@"1"]){
-            [self.mainPhotoButton setBackgroundImage:self.image forState:UIControlStateNormal];
+            [self.mainPhotoButton setImage:self.image forState:UIControlStateNormal];
+            [self.photoButton1 setImage:self.image forState:UIControlStateNormal];
             NSData *fileData = UIImageJPEGRepresentation(self.image, 1.0);
             NSString *fileName = @"photo1";
             PFFile *file = [PFFile fileWithName:fileName data:fileData];
             [self.userObject setObject:file forKey:@"photo1"];
 
         }else if([self.whichImagePicking isEqualToString:@"2"]){
-            [self.photoButton2 setBackgroundImage:self.image forState:UIControlStateNormal];
+            [self.mainPhotoButton setImage:self.image forState:UIControlStateNormal];
+            [self.photoButton2 setImage:self.image forState:UIControlStateNormal];
             NSData *fileData = UIImageJPEGRepresentation(self.image, 1.0);
             NSString *fileName = @"photo2";
             PFFile *file = [PFFile fileWithName:fileName data:fileData];
             [self.userObject setObject:file forKey:@"photo2"];
 
         }else if([self.whichImagePicking isEqualToString:@"3"]){
-            [self.photoButton3 setBackgroundImage:self.image forState:UIControlStateNormal];
+            [self.mainPhotoButton setImage:self.image forState:UIControlStateNormal];
+            [self.photoButton3 setImage:self.image forState:UIControlStateNormal];
             NSData *fileData = UIImageJPEGRepresentation(self.image, 1.0);
             NSString *fileName = @"photo3";
             PFFile *file = [PFFile fileWithName:fileName data:fileData];
@@ -169,30 +232,8 @@
 }
 
 - (IBAction)choosePhoto1:(id)sender {
-    self.whichImagePicking = @"1";
+    
     [self presentPhotoLibrary];
-}
-
-- (IBAction)choosePhoto2:(id)sender {
-     self.whichImagePicking = @"2";
-     [self presentPhotoLibrary];
-}
-
-- (IBAction)choosePhoto3:(id)sender {
-     self.whichImagePicking = @"3";
-     [self presentPhotoLibrary];
-}
-
-- (IBAction)enableCommentsPressed:(id)sender {
-    
-    if([self.commentString isEqualToString:@"YES"]){
-        self.commentString = @"NO";
-    }else{
-        self.commentString = @"YES";
-    }
-    
-    [self.userObject setObject:self.commentString forKey:@"commentsEnabled"];
-    
 }
 
 -(void)loadProfileImages
@@ -207,6 +248,7 @@
             //NSData *imageData1 = [NSData dataWithContentsOfURL:imageFileUrl1];
             
             [self.mainPhotoButton sd_setImageWithURL:imageFileUrl1 forState:UIControlStateNormal];
+             [self.photoButton1 sd_setImageWithURL:imageFileUrl1 forState:UIControlStateNormal];
         }
         
         if([self.userObject objectForKey:@"photo2"]){
@@ -227,5 +269,65 @@
         }
         
     }
+}
+
+-(void)roundButtons{
+    
+    self.photoButton1.layer.cornerRadius = self.photoButton1.frame.size.height/2;
+    self.photoButton1.layer.masksToBounds = YES;
+    self.photoButton1.layer.borderWidth = 0;
+    
+    self.photoButton2.layer.cornerRadius = self.photoButton1.frame.size.height/2;
+    self.photoButton2.layer.masksToBounds = YES;
+    self.photoButton2.layer.borderWidth = 0;
+    
+    self.photoButton3.layer.cornerRadius = self.photoButton1.frame.size.height/2;
+    self.photoButton3.layer.masksToBounds = YES;
+    self.photoButton3.layer.borderWidth = 0;
+    
+}
+
+#pragma mark- Switch Methods
+
+-(void)updateSwitches{
+    if([[self.userObject objectForKey:@"commentsEnabled"] isEqualToString:@"YES"]){
+        [self.allowCommentSwitch setOn:YES animated:NO];
+    }else{
+        [self.allowCommentSwitch setOn:NO animated:NO];
+    }
+    
+    if([[self.userObject objectForKey:@"hideRating"] isEqualToString:@"YES"]){
+       [self.hideRatingSwitch setOn:YES animated:NO];
+    }else{
+        [self.hideRatingSwitch setOn:NO animated:NO];
+    }
+    
+}
+- (IBAction)allowCommentSwitchPressed:(id)sender {
+    
+    if(self.allowCommentSwitch.on){
+        [self.userObject setObject:@"YES" forKey:@"commentsEnabled"];
+    }else{
+        [self.userObject setObject:@"NO" forKey:@"commentsEnabled"];
+    }
+    
+        [self.userObject saveInBackground];
+    
+}
+
+- (IBAction)hideRatingSwitchPressed:(id)sender {
+    
+    if(self.hideRatingSwitch.on){
+        [self.userObject setObject:@"YES" forKey:@"hideRating"];
+    }else{
+        [self.userObject setObject:@"NO" forKey:@"hideRating"];
+    }
+    
+        [self.userObject saveInBackground];
+    
+}
+- (IBAction)doneButtonPressed:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

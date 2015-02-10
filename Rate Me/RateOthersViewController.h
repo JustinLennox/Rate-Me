@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "SDWebImage/UIImageView+WebCache.h"
 #import "UIImageView+WebCache.h"
+#import <QuartzCore/QuartzCore.h>
 #import "UIButton+WebCache.h"
 
 
@@ -58,6 +59,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *rating8Button;
 @property (weak, nonatomic) IBOutlet UIButton *rating9Button;
 @property (weak, nonatomic) IBOutlet UIButton *rating10Button;
+@property (strong, nonatomic) NSArray *buttonArray;
 
 //Rating
 @property (strong, nonatomic) NSNumber *finalRating;

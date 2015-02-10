@@ -25,6 +25,9 @@
         // [Optional] Track statistics around application opens.
         [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+        
     return YES;
 }
 

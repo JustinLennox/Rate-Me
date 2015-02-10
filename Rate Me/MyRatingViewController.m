@@ -17,10 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.navigationController.navigationBar setTitleTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIFont fontWithName:@"Helvetica New" size:20],
-      NSFontAttributeName,[UIColor whiteColor], NSForegroundColorAttributeName, nil]];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationItem.title = @"My Rating";
+    
 
 }
 
@@ -56,9 +55,7 @@
     self.usernameLabel.text = [self.currentUser objectForKey:@"username"];
     
     
-    //Did you Know?
-    [self loadDidYouKnows];
-    self.didYouKnowTextLabel.text = [self.didYouKnowInfo objectAtIndex:0];
+
 }
 
 /*
@@ -71,11 +68,6 @@
 }
 */
 
--(void) loadDidYouKnows{
-    
-    self.didYouKnowInfo = [[NSArray alloc] initWithObjects:@"In the 1800s, wide birthing hips and thighs were considered the highest form of beauty", nil];
-    
-}
 
 -(void) setRating{
     self.userAverageRating = 0.0f;
