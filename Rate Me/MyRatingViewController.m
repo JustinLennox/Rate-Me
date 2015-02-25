@@ -149,6 +149,18 @@
         self.userOverallRating = round(self.userAverageRating);
         self.overallRatingLabel.text =  [NSString stringWithFormat:@"%i", self.userOverallRating];
          self.averageRatingLabel.text = [NSString stringWithFormat:@"%.1f", self.userAverageRating];
+        
+        NSExpression *expressionMedian = [NSExpression expressionForFunction:@"median:" arguments:@[[NSExpression expressionForConstantValue:[self.userObject objectForKey:@"overallRatingArray"]]]];
+        id median = [expressionMedian expressionValueWithObject:nil context:nil];
+        self.medianValue.text = [NSString stringWithFormat:@"%@", median];
+        
+        NSExpression *expressionMode = [NSExpression expressionForFunction:@"mode:" arguments:@[[NSExpression expressionForConstantValue:[self.userObject objectForKey:@"overallRatingArray"]]]];
+        id mode = [expressionMode expressionValueWithObject:nil context:nil];
+        NSString *modeString = [NSString stringWithFormat:@"%@", mode];
+        self.modeValue.text = [[modeString componentsSeparatedByCharactersInSet:
+                                [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
+                               componentsJoinedByString:@""];
+        
     }else{
         self.overallRatingLabel.text =  @"?";
         self.averageRatingLabel.text = @"?";

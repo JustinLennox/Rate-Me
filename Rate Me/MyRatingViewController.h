@@ -53,7 +53,9 @@
 @property (nonatomic) int count10;
 
 
-
+//Statistics
+@property (strong, nonatomic) IBOutlet UILabel *medianValue;
+@property (strong, nonatomic) IBOutlet UILabel *modeValue;
 
 //Profile Button
 - (IBAction)profileButtonPressed:(id)sender;

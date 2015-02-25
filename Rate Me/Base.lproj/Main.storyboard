@@ -457,7 +457,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZ8-q3-vML">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1600"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="From Girls" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBf-22-Bxw">
                                                 <rect key="frame" x="29" y="383" width="100" height="21"/>
@@ -547,23 +547,53 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e55-0f-wZt" customClass="BarChartView">
-                                                <rect key="frame" x="22" y="491" width="196" height="131"/>
+                                                <rect key="frame" x="10" y="500" width="335" height="172"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Median" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vl-fg-AXE" userLabel="Median">
+                                                <rect key="frame" x="24" y="800" width="80" height="52"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Median" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJe-5i-mFK" userLabel="MedianValue">
+                                                <rect key="frame" x="114" y="800" width="70" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z25-Ay-tf5" userLabel="Mode">
+                                                <rect key="frame" x="29" y="900" width="70" height="43"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09Y-sh-nBg" userLabel="ModeValue">
+                                                <rect key="frame" x="112" y="900" width="70" height="43"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="800" id="ISc-Cb-Ha5"/>
+                                            <constraint firstAttribute="height" constant="1600" id="Wt7-ZW-Z1V"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="nZ8-q3-vML" secondAttribute="bottom" constant="-1000" id="HcM-0c-aXC"/>
+                                    <constraint firstAttribute="bottom" secondItem="nZ8-q3-vML" secondAttribute="bottom" id="OFA-A9-hOT"/>
                                     <constraint firstAttribute="width" secondItem="nZ8-q3-vML" secondAttribute="width" id="PGX-mv-7vI"/>
-                                    <constraint firstItem="nZ8-q3-vML" firstAttribute="top" secondItem="vYF-ck-NUS" secondAttribute="top" id="VzL-NW-ZSh"/>
                                     <constraint firstAttribute="trailing" secondItem="nZ8-q3-vML" secondAttribute="trailing" id="gFN-HY-x1F"/>
-                                    <constraint firstAttribute="bottom" secondItem="nZ8-q3-vML" secondAttribute="bottom" id="iHq-X8-h2K"/>
                                     <constraint firstItem="nZ8-q3-vML" firstAttribute="leading" secondItem="vYF-ck-NUS" secondAttribute="leading" id="pNO-jR-bBW"/>
+                                    <constraint firstItem="nZ8-q3-vML" firstAttribute="top" secondItem="vYF-ck-NUS" secondAttribute="top" id="r9R-Wn-OvB"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="HcM-0c-aXC"/>
+                                    </mask>
+                                </variation>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -583,6 +613,8 @@
                         <outlet property="containerView" destination="hBf-22-Bxw" id="5cf-nV-5HK"/>
                         <outlet property="girlRatingLabel" destination="8K2-L7-Kyo" id="6VU-ET-rB7"/>
                         <outlet property="guyRatingLabel" destination="NFX-g3-nfD" id="iCt-LE-Aqc"/>
+                        <outlet property="medianValue" destination="WJe-5i-mFK" id="dag-ht-yQx"/>
+                        <outlet property="modeValue" destination="09Y-sh-nBg" id="ssr-Uf-BdU"/>
                         <outlet property="numberOfRatingsLabel" destination="ahn-fk-FIz" id="FRf-eu-alI"/>
                         <outlet property="overallRatingLabel" destination="XSt-T7-oRJ" id="rOf-u1-THP"/>
                         <outlet property="profileImage" destination="56z-hb-QMq" id="efQ-xi-jfO"/>
