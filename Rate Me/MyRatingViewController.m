@@ -197,9 +197,9 @@
     // Generate the bar chart using the formatted data
     [self.barChart setDataWithArray:array
                       showAxis:DisplayBothAxes
-                     withColor:[UIColor darkGrayColor]
+                     withColor:flatBlue
                       withFont:[UIFont systemFontOfSize:11]
-       shouldPlotVerticalLines:YES];
+       shouldPlotVerticalLines:NO];
 }
 
 - (BOOL)barChartItemDisplaysPopoverOnTap {
