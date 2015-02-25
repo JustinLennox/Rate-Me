@@ -244,7 +244,7 @@
 		NSUInteger index = 0;
 		for (NSDictionary *barInfo in chartDataArray)  {
 			bar = [barViews objectAtIndex:index];
-			bar.frame = CGRectMake((barFullWidth - barWidth)/2 + index*(barFullWidth), plotView.height - roundf([[barInfo objectForKey:@"value"] floatValue]*barHeightRatio), barWidth, roundf([[barInfo objectForKey:@"value"] floatValue]*barHeightRatio));
+			bar.frame = CGRectMake((barFullWidth - barWidth)/2 + index*(barFullWidth) - 2.5, plotView.height - roundf([[barInfo objectForKey:@"value"] floatValue]*barHeightRatio), barWidth, roundf([[barInfo objectForKey:@"value"] floatValue]*barHeightRatio));
 			index++;
 		}
 	}];

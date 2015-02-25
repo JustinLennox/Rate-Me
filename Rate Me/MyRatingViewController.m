@@ -240,6 +240,9 @@
     //Set the Initial Animation of the Bars (Rise, Fade, Float, or None) - Rise is default
     [self.barChart setupBarViewAnimation:BarAnimationRise];
     
+    //Disable bar chart interaction
+    [self.barChart setUserInteractionEnabled:NO];
+    
     // Generate the bar chart using the formatted data
     [self.barChart setDataWithArray:array
                       showAxis:DisplayBothAxes
