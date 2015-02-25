@@ -12,7 +12,6 @@
             <string>SourceSansPro-Regular</string>
             <string>SourceSansPro-Regular</string>
             <string>SourceSansPro-Regular</string>
-            <string>SourceSansPro-Regular</string>
         </mutableArray>
         <mutableArray key="SourceSansPro-Semibold.otf">
             <string>SourceSansPro-Semibold</string>
@@ -439,17 +438,6 @@
                                 <color key="textColor" red="0.0078431372550000003" green="0.72941176470000002" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJV-P9-v7i">
-                                <rect key="frame" x="106" y="146" width="76" height="30"/>
-                                <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
-                                <state key="normal" title="My Profile" backgroundImage="OutlineButton.png">
-                                    <color key="titleColor" red="0.0078431372550000003" green="0.72941176470000002" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="profileButtonPressed:" destination="KFO-SU-OeN" eventType="touchUpInside" id="5MF-nF-C3d"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="guyRating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFX-g3-nfD">
                                 <rect key="frame" x="23" y="380" width="107" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -508,8 +496,14 @@
                                 <color key="textColor" red="0.98039215690000003" green="0.83137254900000002" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MY-D3-SQr">
+                                <rect key="frame" x="106" y="104" width="154" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <color key="textColor" red="0.98039215690000003" green="0.83137254900000002" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NIN-J5-aAk">
-                                <rect key="frame" x="200" y="146" width="134" height="30"/>
+                                <rect key="frame" x="101" y="143" width="134" height="30"/>
                                 <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
                                 <state key="normal" title="View Comments" backgroundImage="OutlineButton.png">
                                     <color key="titleColor" red="0.0078431372550000003" green="0.72941176470000002" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -519,12 +513,6 @@
                                     <segue destination="ysn-Fk-p2b" kind="show" identifier="showComments" id="zI6-rD-qIw"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MY-D3-SQr">
-                                <rect key="frame" x="106" y="104" width="154" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <color key="textColor" red="0.98039215690000003" green="0.83137254900000002" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -889,6 +877,6 @@
         <image name="camera-96.png" width="96" height="96"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zPH-nw-dY2"/>
+        <segue reference="S7H-rV-Sdp"/>
     </inferredMetricsTieBreakers>
 </document>
