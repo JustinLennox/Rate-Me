@@ -14,7 +14,7 @@
 #import "UIButton+WebCache.h"
 #import "BarChartView.h"
 
-@interface MyRatingViewController : UIViewController
+@interface MyRatingViewController : UIViewController <UIScrollViewDelegate>
 
 //User Props
 @property (strong, nonatomic) PFUser *currentUser;
@@ -30,6 +30,8 @@
 @property (nonatomic) int numberOfRatings;
 
 
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet UILabel *containerView;
 
 //Rating Labels
 @property (strong, nonatomic) IBOutlet UILabel *overallRatingLabel;
