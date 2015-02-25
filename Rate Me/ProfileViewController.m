@@ -32,14 +32,7 @@
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationItem.title = @"Profile";
-    
-    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-    //[backButton setImage:[UIImage imageNamed:@"back.png"] forState:UIControlStateNormal];
-    [backButton setTitle:@"Logout" forState:UIControlStateNormal];
-    [backButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [backButton setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
-    [backButton addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+
     
 }
 
@@ -52,6 +45,7 @@
     
     [super viewWillAppear:animated];
     [self roundButtons];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
     
     PFQuery *query = [PFQuery queryWithClassName:@"UserObjects"];
     [query whereKey:@"username" equalTo:[[PFUser currentUser] username]];

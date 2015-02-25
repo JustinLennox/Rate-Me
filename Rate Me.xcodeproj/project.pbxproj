@@ -84,6 +84,7 @@
 		D0B92A1F1A815A360001CCBE /* RedButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B92A1E1A815A360001CCBE /* RedButton.png */; };
 		D0B92A211A815AE50001CCBE /* BlueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B92A201A815AE50001CCBE /* BlueButton.png */; };
 		D0B92A231A81B67A0001CCBE /* camera-96.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B92A221A81B67A0001CCBE /* camera-96.png */; };
+		D0F218211A9DC9D3002C2300 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F218201A9DC9D3002C2300 /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,6 +204,8 @@
 		D0B92A1E1A815A360001CCBE /* RedButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedButton.png; sourceTree = "<group>"; };
 		D0B92A201A815AE50001CCBE /* BlueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlueButton.png; sourceTree = "<group>"; };
 		D0B92A221A81B67A0001CCBE /* camera-96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-96.png"; sourceTree = "<group>"; };
+		D0F2181F1A9DC9D3002C2300 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		D0F218201A9DC9D3002C2300 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -371,6 +374,8 @@
 				D03812941A4E177600C5BE43 /* RateOthersViewController.m */,
 				D0AC52AE1A8A822900CFED05 /* OtherProfileViewController.h */,
 				D0AC52AF1A8A822900CFED05 /* OtherProfileViewController.m */,
+				D0F2181F1A9DC9D3002C2300 /* SettingsViewController.h */,
+				D0F218201A9DC9D3002C2300 /* SettingsViewController.m */,
 				D03812681A4E036600C5BE43 /* Images.xcassets */,
 				D038126A1A4E036600C5BE43 /* LaunchScreen.xib */,
 				D0037FA21A7F8E4600B5A4C2 /* UI */,
@@ -570,6 +575,7 @@
 				D00557A31A658E1A0036C661 /* UIImage+GIF.m in Sources */,
 				D005579A1A658E1A0036C661 /* NSData+ImageContentType.m in Sources */,
 				D00557A51A658E1A0036C661 /* UIImage+WebP.m in Sources */,
+				D0F218211A9DC9D3002C2300 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

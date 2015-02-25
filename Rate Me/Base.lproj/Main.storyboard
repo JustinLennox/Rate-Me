@@ -138,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5793" y="436"/>
+            <point key="canvasLocation" x="5707" y="448"/>
         </scene>
         <!--Options View Controller-->
         <scene sceneID="MoP-3R-zH3">
@@ -196,6 +196,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zYs-eS-Y0X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-137" y="892"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="h1H-MD-U68">
+            <objects>
+                <viewController id="gdC-3g-6d9" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bO3-KB-fXk"/>
+                        <viewControllerLayoutGuide type="bottom" id="6KK-ke-hzN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZHy-d5-84I">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="showLogin" id="nbn-jJ-IpM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xPO-R9-SvI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4266" y="-1155"/>
         </scene>
         <!--ProfileViewController-->
         <scene sceneID="GZc-AA-ndk">
@@ -316,7 +337,13 @@
                         </subviews>
                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </view>
-                    <navigationItem key="navigationItem" id="xcf-2t-NlN"/>
+                    <navigationItem key="navigationItem" id="xcf-2t-NlN">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="Dho-Lw-r6j">
+                            <connections>
+                                <segue destination="gdC-3g-6d9" kind="show" identifier="showSettings" id="yho-Sj-mWy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="allowCommentSwitch" destination="noI-Ip-iam" id="Ygx-n0-Z3P"/>
                         <outlet property="cameraImage" destination="1iJ-zF-qiY" id="AMA-7T-U2h"/>

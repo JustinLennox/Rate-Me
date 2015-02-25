@@ -9,6 +9,16 @@
 #import "CommentsViewController.h"
 #import "OtherProfileViewController.h"
 
+/*
+*
+*
+*           TO DO:
+*       Remove buttons, change to table view!!!!
+*
+*
+*
+*
+*/
 @interface CommentsViewController ()
 
 @end
