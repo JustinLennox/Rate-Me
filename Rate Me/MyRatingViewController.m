@@ -146,6 +146,13 @@
         // Pass any objects to the view controller here, like...
         
     }
+    
+    if ([segue.identifier isEqualToString:@"showLogin"]) {
+        ViewController *destViewController = segue.destinationViewController;
+        
+        // Hide bottom tab bar in the detail view
+        destViewController.hidesBottomBarWhenPushed = YES;
+    }
 }
 
 -(void)loadProfileImage
@@ -160,8 +167,5 @@
     }
    
 }
-- (IBAction)profileButtonPressed:(id)sender {
-    
-    [self.tabBarController setSelectedIndex:1];
-}
+
 @end

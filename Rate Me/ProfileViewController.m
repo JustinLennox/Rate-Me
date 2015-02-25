@@ -358,4 +358,13 @@
     [PFUser logOut];
     [self performSegueWithIdentifier:@"showLogin" sender:self];
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showLogin"]) {
+        ViewController *destViewController = segue.destinationViewController;
+        
+        // Hide bottom tab bar in the detail view
+        destViewController.hidesBottomBarWhenPushed = YES;
+    }
+}
 @end
