@@ -350,6 +350,7 @@
 		D038125A1A4E036500C5BE43 /* Rate Me */ = {
 			isa = PBXGroup;
 			children = (
+				D03812651A4E036500C5BE43 /* Main.storyboard */,
 				D038125F1A4E036500C5BE43 /* AppDelegate.h */,
 				D03812601A4E036500C5BE43 /* AppDelegate.m */,
 				D03812621A4E036500C5BE43 /* ViewController.h */,
@@ -358,7 +359,6 @@
 				D03812971A4E1A0C00C5BE43 /* ProfileViewController.m */,
 				D0AB7BAA1A50EC1B0044755E /* UIImage+fixOrientation.h */,
 				D0AB7BAB1A50EC1B0044755E /* UIImage+fixOrientation.m */,
-				D03812651A4E036500C5BE43 /* Main.storyboard */,
 				D06D17791A55DD470039AE27 /* CommentsViewController.h */,
 				D06D177A1A55DD470039AE27 /* CommentsViewController.m */,
 				D0AC52B11A8A847400CFED05 /* CommentButton.h */,

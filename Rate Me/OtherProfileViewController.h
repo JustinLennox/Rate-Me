@@ -22,7 +22,6 @@
 
 //UI Photo Buttons
 
-- (IBAction)mainPhotoButtonPressed:(id)sender;
 - (IBAction)photoButton1Pressed:(id)sender;
 - (IBAction)photoButton2Pressed:(id)sender;
 - (IBAction)photoButton3Pressed:(id)sender;

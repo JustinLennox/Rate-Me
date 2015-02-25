@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "ViewController.h"
 
 
 @interface ProfileViewController ()
@@ -18,6 +19,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    PFUser *currentUser = [PFUser currentUser];
+    if(!currentUser){
+        NSLog(@"No user!");
+        ViewController *controller = [[ViewController alloc] init];
+        [self.view.window.rootViewController presentViewController:controller animated:YES completion:nil];
+        [self performSegueWithIdentifier:@"showLogin" sender:self];
+    }
+    
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(250.00f/255.00f) green:(212.00f/255.00f) blue:(107.00f/255.00f) alpha:1.0f];
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationItem.title = @"Profile";
+    
+    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    //[backButton setImage:[UIImage imageNamed:@"back.png"] forState:UIControlStateNormal];
+    [backButton setTitle:@"Logout" forState:UIControlStateNormal];
+    [backButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [backButton setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
+    [backButton addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,6 +49,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    
     [super viewWillAppear:animated];
     [self roundButtons];
     
@@ -48,9 +72,6 @@
         }
         
     }];
-
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.navigationItem.title = @"Profile";
     
     [self.photoLibraryButton setBackgroundImage:[UIImage imageNamed:@"BlueButton.png"] forState:UIControlStateHighlighted];
     [self.photoLibraryButton setBackgroundImage:[UIImage imageNamed:@"BlueButton.png"] forState:UIControlStateSelected];
@@ -329,5 +350,12 @@
 - (IBAction)doneButtonPressed:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark- logout
+
+-(void)logout{
+    [PFUser logOut];
+    [self performSegueWithIdentifier:@"showLogin" sender:self];
 }
 @end

@@ -19,6 +19,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(250.00f/255.00f) green:(212.00f/255.00f) blue:(107.00f/255.00f) alpha:1.0f];
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
 
 }
 
@@ -203,10 +207,15 @@
         }
         
         if(self.commentTextView.text.length > 0){
-            if([self.currentUserGender isEqualToString:@"Male"]){
-               self.finalString = [NSString stringWithFormat:@"%@%@", self.commentTextView.text, @"m"];
+            
+            if(self.anonymous){
+                self.finalString = [NSString stringWithFormat:@"%@%@", self.commentTextView.text, @"a"];
             }else{
-               self.finalString = [NSString stringWithFormat:@"%@%@", self.commentTextView.text, @"f"];
+                if([self.currentUserGender isEqualToString:@"Male"]){
+                   self.finalString = [NSString stringWithFormat:@"%@%@", self.commentTextView.text, @"m"];
+                }else{
+                   self.finalString = [NSString stringWithFormat:@"%@%@", self.commentTextView.text, @"f"];
+                }
             }
             
             //Check to make sure they have a comments dictionary

@@ -7,7 +7,7 @@
 //
 
 #import "MyRatingViewController.h"
-
+#import "ViewController.h"
 @interface MyRatingViewController ()
 
 @end
@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(250.00f/255.00f) green:(212.00f/255.00f) blue:(107.00f/255.00f) alpha:1.0f];
+    self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationItem.title = @"My Rating";
     
@@ -30,11 +32,15 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+    PFUser *currentUser = [PFUser currentUser];
+    if(currentUser){
+    
     self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height/2;
     self.profileImage.layer.masksToBounds = YES;
     self.profileImage.layer.borderWidth = 0;
     
     PFQuery *query = [PFQuery queryWithClassName:@"UserObjects"];
+    NSLog(@"%@", [[PFUser currentUser] username]);
     [query whereKey:@"username" equalTo:[[PFUser currentUser] username]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (error) {
@@ -54,10 +60,23 @@
     self.currentUser = [PFUser currentUser];
     self.usernameLabel.text = [self.currentUser objectForKey:@"username"];
     
-    
-
+    }
 }
 
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    PFUser *currentUser = [PFUser currentUser];
+    if(!currentUser){
+        NSLog(@"No user!");
+        //ViewController *controller = [[ViewController alloc] init];
+        //[self.view.window.rootViewController presentViewController:controller animated:YES completion:nil];
+        [self performSegueWithIdentifier:@"showLogin" sender:self];
+        
+    }
+    
+}
 /*
 #pragma mark - Navigation
 
@@ -140,5 +159,9 @@
         //self.profileImage.image = [UIImage imageWithData:imageData1];
     }
    
+}
+- (IBAction)profileButtonPressed:(id)sender {
+    
+    [self.tabBarController setSelectedIndex:1];
 }
 @end

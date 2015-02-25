@@ -38,6 +38,8 @@
     {
         CommentButton *commentButton = [CommentButton buttonWithType:UIButtonTypeRoundedRect];
         NSString *commentString = [[self.userObject objectForKey:@"commentsDictionary"] objectForKey:key];
+        commentButton.selected = NO;
+        commentButton.highlighted = NO;
         NSLog(@"comment: %@", commentString);
         commentButton.frame = CGRectMake(10, self.lastCommentY+10, 200, 25);
         self.lastCommentY += 35;
@@ -52,11 +54,11 @@
              commentString = [commentString substringWithRange:NSMakeRange(0, 120)];
         }
         
-        if(commentString.length > 25 && commentString.length <= 50){
+        /*if(commentString.length > 25 && commentString.length <= 50){
             commentString = [NSString stringWithFormat:@"%@\n%@", [commentString substringWithRange:NSMakeRange(0, 25)], [commentString substringWithRange:NSMakeRange(25, commentString.length-25)]];
         }else if(commentString.length > 50){
             commentString = [NSString stringWithFormat:@"%@\n%@\n%@", [commentString substringWithRange:NSMakeRange(0, 25)], [commentString substringWithRange:NSMakeRange(25, 25)], [commentString substringWithRange:NSMakeRange(50, commentString.length-50)]];
-        }
+        }*/
         
         
         [commentButton setTitle:commentString forState:UIControlStateNormal];
@@ -69,14 +71,21 @@
 
         
         if([genderLetter isEqualToString:@"m"]){
-            [commentButton setTitleColor:[UIColor colorWithRed:(2.00f/255.00f) green:(186.00f/255.00f) blue:(242.00f/255.00f) alpha:1.0f] forState:UIControlStateNormal];
-            [[commentButton layer] setBorderColor:[UIColor colorWithRed:(2.00f/255.00f) green:(186.00f/255.00f) blue:(242.00f/255.00f) alpha:1.0f].CGColor];
-        }else{
+            UIColor *flatBlueColor = [UIColor colorWithRed:(2.00f/255.00f) green:(186.00f/255.00f) blue:(242.00f/255.00f) alpha:1.0f];
+            [commentButton setTitleColor:flatBlueColor forState:UIControlStateNormal];
+            [[commentButton layer] setBorderColor:flatBlueColor.CGColor];
+            NSLog(@"It's definitely being called..");
+
+            
+        }else if([genderLetter isEqualToString:@"f"]){
              [commentButton setTitleColor:[UIColor colorWithRed:(248.00f/255.00f) green:(69.00f/255.00f) blue:(69.00f/255.00f) alpha:1.0f] forState:UIControlStateNormal];
             [[commentButton layer] setBorderColor:[UIColor colorWithRed:(248.00f/255.00f) green:(69.00f/255.00f) blue:(69.00f/255.00f) alpha:1.0f].CGColor];
 
+        }else if([genderLetter isEqualToString:@"a"]){
+            [commentButton setTitleColor:[UIColor colorWithRed:(94.00f/255.00f) green:(105.00f/255.00f) blue:(109.00f/255.00f) alpha:1.0f] forState:UIControlStateNormal];
+            [[commentButton layer] setBorderColor:[UIColor colorWithRed:(94.00f/255.00f) green:(105.00f/255.00f) blue:(109.00f/255.00f) alpha:1.0f].CGColor];
         }
-        
+
         commentButton.contentMode = UIViewContentModeScaleAspectFill;
         
         //Make it so that pressing the comment loads the user's profile
@@ -84,7 +93,9 @@
         [commentButton addTarget:self
                    action:@selector(loadProfile:)
          forControlEvents:UIControlEventTouchUpInside];
-        
+        [commentButton setBackgroundImage:nil forState:UIControlStateNormal];
+        [commentButton setBackgroundImage:nil forState:UIControlStateSelected];
+        [commentButton setBackgroundImage:nil forState:UIControlStateHighlighted];
         [self.regularView addSubview:commentButton];
         
         self.commentNumber++;
@@ -116,6 +127,7 @@
             [self performSegueWithIdentifier:@"showUserProfile" sender:self];
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.queryingForUsers = NO;
+
             });
             
         }

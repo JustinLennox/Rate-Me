@@ -37,6 +37,11 @@
 @property (strong, nonatomic) IBOutlet UILabel *averageRatingLabel;
 @property (strong, nonatomic) IBOutlet UILabel *numberOfRatingsLabel;
 
+
+//Profile Button
+- (IBAction)profileButtonPressed:(id)sender;
+
+
 //Did You Know?
 @property (strong, nonatomic) IBOutlet UILabel *didYouKnowLabel;
 @property (strong, nonatomic) IBOutlet UILabel *didYouKnowTextLabel;

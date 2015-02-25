@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Oty-Mp-aF3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AXU-Rg-424">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -139,7 +139,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1546" y="174"/>
+            <point key="canvasLocation" x="5793" y="436"/>
         </scene>
         <!--Options View Controller-->
         <scene sceneID="MoP-3R-zH3">
@@ -159,9 +159,6 @@
                                 <state key="normal" title="Rate Others">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="ARo-4w-enO" kind="show" id="Tkv-C7-PwE"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ff2-oF-ESc">
                                 <rect key="frame" x="34" y="316" width="200" height="40"/>
@@ -173,19 +170,12 @@
                                 <rect key="frame" x="16" y="103" width="250" height="60"/>
                                 <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="18"/>
                                 <state key="normal" title="My Rating"/>
-                                <connections>
-                                    <segue destination="KFO-SU-OeN" kind="show" id="Ccg-C0-B4z"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="1C5-9I-Dqs">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="fHe-Gk-Knx">
-                            <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" identifier="showLogin" id="jpL-RV-vkz"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="fHe-Gk-Knx"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="wAE-Bg-8Nd">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="T8V-sN-mRb">
                                 <rect key="frame" x="451" y="7" width="133" height="35"/>
@@ -195,9 +185,6 @@
                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="4Hu-CW-cpH" kind="show" identifier="showProfile" id="yma-Nt-FPd"/>
-                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
@@ -209,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zYs-eS-Y0X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2271" y="994"/>
+            <point key="canvasLocation" x="-137" y="892"/>
         </scene>
         <!--ProfileViewController-->
         <scene sceneID="GZc-AA-ndk">
@@ -242,7 +229,6 @@
                                 </state>
                                 <connections>
                                     <action selector="photoButton1Pressed:" destination="4Hu-CW-cpH" eventType="touchUpInside" id="uHb-zf-3ie"/>
-                                    <action selector="thumButton1Pressed:" destination="ARo-4w-enO" eventType="touchUpInside" id="c6Y-Ng-JeM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zaq-XC-Xwt" userLabel="photo2thumb">
@@ -253,7 +239,6 @@
                                 </state>
                                 <connections>
                                     <action selector="photoButton2Pressed:" destination="4Hu-CW-cpH" eventType="touchUpInside" id="31p-iX-EYz"/>
-                                    <action selector="thumbButton2Pressed:" destination="ARo-4w-enO" eventType="touchUpInside" id="WWS-wN-SiM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mhe-f9-Sav" userLabel="photo3thumb">
@@ -264,7 +249,6 @@
                                 </state>
                                 <connections>
                                     <action selector="photoButton3Pressed:" destination="4Hu-CW-cpH" eventType="touchUpInside" id="HAs-ee-hXA"/>
-                                    <action selector="thumbButton3Pressed:" destination="ARo-4w-enO" eventType="touchUpInside" id="uqm-MH-kUM"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeV-5N-Pqi">
@@ -333,6 +317,7 @@
                         </subviews>
                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </view>
+                    <navigationItem key="navigationItem" id="xcf-2t-NlN"/>
                     <connections>
                         <outlet property="allowCommentSwitch" destination="noI-Ip-iam" id="Ygx-n0-Z3P"/>
                         <outlet property="cameraImage" destination="1iJ-zF-qiY" id="AMA-7T-U2h"/>
@@ -345,13 +330,14 @@
                         <outlet property="photoLabel" destination="P6B-Gn-4Ae" id="DmU-3G-kEF"/>
                         <outlet property="photoLibraryButton" destination="OSv-Kf-h1B" id="ytZ-CM-MwJ"/>
                         <outlet property="usernameLabel" destination="CeV-5N-Pqi" id="YCa-EV-Ojd"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="showLogin" id="zPH-nw-dY2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uny-4t-OAj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2370" y="-594"/>
+            <point key="canvasLocation" x="4266" y="-356"/>
         </scene>
-        <!--Other Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="tc5-mf-6Bg">
             <objects>
                 <viewController id="k94-ye-5CE" customClass="OtherProfileViewController" sceneMemberID="viewController">
@@ -370,10 +356,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="mainPhotoButtonPressed:" destination="4Hu-CW-cpH" eventType="touchUpInside" id="UOb-Il-kTv"/>
-                                    <action selector="mainPhotoButtonPressed:" destination="k94-ye-5CE" eventType="touchUpInside" id="zTJ-hV-etM"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Yc-6R-ncI" userLabel="photo1thumb">
                                 <rect key="frame" x="102" y="350" width="50" height="50"/>
@@ -383,8 +365,6 @@
                                 </state>
                                 <connections>
                                     <action selector="photoButton1Pressed:" destination="k94-ye-5CE" eventType="touchUpInside" id="6XR-6n-ew3"/>
-                                    <action selector="photoButton1Pressed:" destination="4Hu-CW-cpH" eventType="touchUpInside" id="BgS-PZ-oez"/>
-                                    <action selector="thumButton1Pressed:" destination="ARo-4w-enO" eventType="touchUpInside" id="hLb-BQ-WUF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QrH-ay-pyZ" userLabel="photo2thumb">
@@ -395,8 +375,6 @@
                                 </state>
                                 <connections>
                                     <action selector="photoButton2Pressed:" destination="k94-ye-5CE" eventType="touchUpInside" id="vh1-Oz-k1l"/>
-                                    <action selector="photoButton2Pressed:" destination="4Hu-CW-cpH" eventType="touchUpInside" id="wCl-wa-0Fz"/>
-                                    <action selector="thumbButton2Pressed:" destination="ARo-4w-enO" eventType="touchUpInside" id="8Yg-cw-8f1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kcg-rf-LLu" userLabel="photo3thumb">
@@ -407,8 +385,6 @@
                                 </state>
                                 <connections>
                                     <action selector="photoButton3Pressed:" destination="k94-ye-5CE" eventType="touchUpInside" id="qid-OS-bfs"/>
-                                    <action selector="photoButton3Pressed:" destination="4Hu-CW-cpH" eventType="touchUpInside" id="wBa-LH-kXI"/>
-                                    <action selector="thumbButton3Pressed:" destination="ARo-4w-enO" eventType="touchUpInside" id="EXU-iW-saF"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEV-od-a6i">
@@ -426,16 +402,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Profile" id="C9Z-QW-Dgh"/>
                     <connections>
                         <outlet property="mainPhotoButton" destination="qx1-ie-t3S" id="UjH-94-WQ4"/>
                         <outlet property="photoButton1" destination="0Yc-6R-ncI" id="nNI-vm-68d"/>
                         <outlet property="photoButton2" destination="QrH-ay-pyZ" id="3Be-f2-te9"/>
                         <outlet property="photoButton3" destination="Kcg-rf-LLu" id="EeX-Nz-NX2"/>
+                        <outlet property="usernameLabel" destination="NMK-hK-D9Q" id="aPc-NL-ggq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LR5-KA-mt1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2995" y="-594"/>
+            <point key="canvasLocation" x="5049" y="-356"/>
         </scene>
         <!--My Rating-->
         <scene sceneID="gR9-Zx-VD5">
@@ -469,7 +447,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="4Hu-CW-cpH" kind="show" identifier="showProfile" id="Uja-sS-hXx"/>
+                                    <action selector="profileButtonPressed:" destination="KFO-SU-OeN" eventType="touchUpInside" id="5MF-nF-C3d"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="guyRating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFX-g3-nfD">
@@ -561,11 +539,12 @@
                         <outlet property="overallRatingLabel" destination="XSt-T7-oRJ" id="rOf-u1-THP"/>
                         <outlet property="profileImage" destination="K2v-2I-wNd" id="z95-om-Uib"/>
                         <outlet property="usernameLabel" destination="3MY-D3-SQr" id="HjN-Jr-BEd"/>
+                        <segue destination="BYZ-38-t0r" kind="push" identifier="showLogin" id="S7H-rV-Sdp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YtL-k5-kMF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2384" y="68"/>
+            <point key="canvasLocation" x="4266" y="436"/>
         </scene>
         <!--Comments View Controller-->
         <scene sceneID="8w2-WV-0my">
@@ -606,7 +585,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jft-IW-ajJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3005" y="68"/>
+            <point key="canvasLocation" x="5049" y="448"/>
         </scene>
         <!--Rate Others View Controller-->
         <scene sceneID="0Bl-XQ-afU">
@@ -798,6 +777,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="CcC-7Z-fqh"/>
                     <connections>
                         <outlet property="commentButton" destination="9Bd-C3-EaJ" id="4gP-EK-lPw"/>
                         <outlet property="commentTextView" destination="2Fg-uj-cwd" id="nca-vU-RoN"/>
@@ -821,43 +801,84 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xT8-iJ-qki" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3130" y="726"/>
+            <point key="canvasLocation" x="4114" y="1133"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="wA5-9a-x7K">
+        <!--Rate Others-->
+        <scene sceneID="qBu-lU-xO4">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Oty-Mp-aF3" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iIM-a0-ei4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Rate Others" id="oga-ae-6pD"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="tw0-DD-9lc"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="m3r-zz-rYl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DeC-Ih-pJq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="PNY-vu-Q2U" kind="relationship" relationship="rootViewController" id="498-Le-U6d"/>
+                        <segue destination="ARo-4w-enO" kind="relationship" relationship="rootViewController" id="tty-d1-Kck"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rHI-h2-luj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m7J-Q7-weg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1007" y="1058"/>
+            <point key="canvasLocation" x="3302" y="1149"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="tfT-DF-uGo">
+        <!--My Rating-->
+        <scene sceneID="rhD-Mg-XSW">
             <objects>
-                <viewController id="Gnh-YY-tTZ" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="NZS-by-hd7"/>
-                        <viewControllerLayoutGuide type="bottom" id="XUb-3i-x8m"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hrF-7d-XaP">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sRO-Dq-EO2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cEH-wm-EHM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Rating" id="GPv-Jz-WId"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QhV-qu-XSR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KFO-SU-OeN" kind="relationship" relationship="rootViewController" id="jYr-OB-qun"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mra-lC-sgt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="3454" y="436"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="aPj-9b-dkd">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="AXU-Rg-424" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="vSj-iK-WMg">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="cEH-wm-EHM" kind="relationship" relationship="viewControllers" id="yB7-TC-six"/>
+                        <segue destination="iIM-a0-ei4" kind="relationship" relationship="viewControllers" id="xjL-8T-ult"/>
+                        <segue destination="dw5-qk-e5q" kind="relationship" relationship="viewControllers" id="ZSg-bF-55U"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2tz-4w-cYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2642" y="436"/>
+        </scene>
+        <!--My Profile-->
+        <scene sceneID="iRO-BR-Tjs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dw5-qk-e5q" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="My Profile" id="H7m-2x-HQO"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vO7-CR-M03">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4Hu-CW-cpH" kind="relationship" relationship="rootViewController" id="fEQ-KO-03i"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a7Y-ou-ShG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3454" y="-356"/>
         </scene>
     </scenes>
     <resources>
@@ -868,6 +889,6 @@
         <image name="camera-96.png" width="96" height="96"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yma-Nt-FPd"/>
+        <segue reference="zPH-nw-dY2"/>
     </inferredMetricsTieBreakers>
 </document>

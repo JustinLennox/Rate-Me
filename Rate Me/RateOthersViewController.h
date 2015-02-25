@@ -37,7 +37,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *commentTextField;
 @property (weak, nonatomic) IBOutlet UITextView *commentTextView;
 @property (strong, nonatomic) NSString *finalString;
-
+@property (nonatomic) BOOL anonymous;
 //Rating Buttons
 - (IBAction)rating1Pressed:(id)sender;
 - (IBAction)rating2Pressed:(id)sender;
