@@ -547,7 +547,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e55-0f-wZt" customClass="BarChartView">
-                                <rect key="frame" x="97" y="441" width="196" height="131"/>
+                                <rect key="frame" x="85" y="372" width="196" height="131"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>

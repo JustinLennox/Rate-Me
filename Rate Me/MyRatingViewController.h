@@ -38,6 +38,20 @@
 @property (strong, nonatomic) IBOutlet UILabel *averageRatingLabel;
 @property (strong, nonatomic) IBOutlet UILabel *numberOfRatingsLabel;
 
+//Number Counts
+@property (nonatomic) int count1;
+@property (nonatomic) int count2;
+@property (nonatomic) int count3;
+@property (nonatomic) int count4;
+@property (nonatomic) int count5;
+@property (nonatomic) int count6;
+@property (nonatomic) int count7;
+@property (nonatomic) int count8;
+@property (nonatomic) int count9;
+@property (nonatomic) int count10;
+
+
+
 
 //Profile Button
 - (IBAction)profileButtonPressed:(id)sender;

@@ -94,10 +94,56 @@
     self.userGirlRating = 0.0f;
     self.userBoyRating = 0.0f;
     self.userOverallRating = 0.0f;
+    self.count1 = 0;
+    self.count2 = 0;
+    self.count3 = 0;
+    self.count4 = 0;
+    self.count5 = 0;
+    self.count6 = 0;
+    self.count7 = 0;
+    self.count8 = 0;
+    self.count9 = 0;
+    self.count10 = 0;
     
     if([[self.userObject objectForKey:@"overallRatingArray"] count] > 0){
         for(NSNumber *number in [self.userObject objectForKey:@"overallRatingArray"]){
             self.userAverageRating += [number doubleValue];
+            int n = [number intValue];
+            switch (n) {
+                case 1:
+                    self.count1++;
+                    break;
+                case 2:
+                    self.count2++;
+                    break;
+                case 3:
+                    self.count3++;
+                    break;
+                case 4:
+                    self.count4++;
+                    break;
+                case 5:
+                    self.count5++;
+                    break;
+                case 6:
+                    self.count6++;
+                    break;
+                case 7:
+                    self.count7++;
+                    break;
+                case 8:
+                    self.count8++;
+                    break;
+                case 9:
+                    self.count9++;
+                    break;
+                case 10:
+                    self.count10++;
+                    break;
+                    
+                default:
+                    break;
+            }
         }
         self.userAverageRating = self.userAverageRating/[[self.userObject objectForKey:@"overallRatingArray"] count];
         self.userOverallRating = round(self.userAverageRating);
@@ -178,8 +224,8 @@
     UIColor *flatYellow = [UIColor colorWithRed:250.0f/255.0f green:212.0f/255.0f blue:107.0f/255.0f alpha:1.0f];
     UIColor *flatBlue = [UIColor colorWithRed:(2.00f/255.00f) green:(186.00f/255.00f) blue:(242.00f/255.00f) alpha:1.0f];
     // Generate properly formatted data to give to the bar chart
-    NSArray *array = [self.barChart createChartDataWithTitles:[NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", nil]
-                                                  values:[NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", nil]
+    NSArray *array = [self.barChart createChartDataWithTitles:[NSArray arrayWithObjects:@"%1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", nil]
+                                                  values:[NSArray arrayWithObjects:[NSNumber numberWithInt:self.count1], [NSNumber numberWithInt:self.count2], [NSNumber numberWithInt:self.count3], [NSNumber numberWithInt:self.count4], [NSNumber numberWithInt:self.count5], [NSNumber numberWithInt:self.count6], [NSNumber numberWithInt:self.count7], [NSNumber numberWithInt:self.count8], [NSNumber numberWithInt:self.count9], [NSNumber numberWithInt:self.count10],nil]
                                                   colors:[NSArray arrayWithObjects:flatYellow, flatYellow, flatYellow, flatYellow, flatYellow, flatYellow, flatYellow, flatYellow, flatYellow, flatYellow,  nil]
                                              labelColors:[NSArray arrayWithObjects:flatBlue, flatBlue, flatBlue, flatBlue, flatBlue, flatBlue, flatBlue, flatBlue, flatBlue, flatBlue, nil]];
 
