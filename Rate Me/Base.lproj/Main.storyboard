@@ -477,10 +477,6 @@
                                 <color key="textColor" red="0.97254901959999995" green="0.27058823529999998" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K2v-2I-wNd">
-                                <rect key="frame" x="23" y="115" width="70" height="70"/>
-                                <color key="backgroundColor" red="0.98039215690000003" green="0.83137254900000002" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="averageRating" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AbD-e5-zjf">
                                 <rect key="frame" x="265" y="380" width="107" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -540,6 +536,16 @@
                                     <segue destination="ysn-Fk-p2b" kind="show" identifier="showComments" id="zI6-rD-qIw"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56z-hb-QMq">
+                                <rect key="frame" x="28" y="122" width="65" height="70"/>
+                                <color key="backgroundColor" red="0.98039215690000003" green="0.83137254900000002" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="profileButtonPressed:" destination="KFO-SU-OeN" eventType="touchUpInside" id="MPU-p6-mMz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -552,7 +558,7 @@
                         <outlet property="guyRatingLabel" destination="NFX-g3-nfD" id="iCt-LE-Aqc"/>
                         <outlet property="numberOfRatingsLabel" destination="ahn-fk-FIz" id="FRf-eu-alI"/>
                         <outlet property="overallRatingLabel" destination="XSt-T7-oRJ" id="rOf-u1-THP"/>
-                        <outlet property="profileImage" destination="K2v-2I-wNd" id="z95-om-Uib"/>
+                        <outlet property="profileImage" destination="56z-hb-QMq" id="efQ-xi-jfO"/>
                         <outlet property="usernameLabel" destination="3MY-D3-SQr" id="HjN-Jr-BEd"/>
                         <segue destination="BYZ-38-t0r" kind="push" identifier="showLogin" id="S7H-rV-Sdp"/>
                     </connections>

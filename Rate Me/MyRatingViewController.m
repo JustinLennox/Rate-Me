@@ -161,11 +161,13 @@
         
         PFFile *imageFile1 = [self.userObject objectForKey:@"photo1"];
         NSURL *imageFileUrl1 = [[NSURL alloc] initWithString:imageFile1.url];
-        //NSData *imageData1 = [NSData dataWithContentsOfURL:imageFileUrl1];
-        [self.profileImage sd_setImageWithURL:imageFileUrl1];
-        //self.profileImage.image = [UIImage imageWithData:imageData1];
+        [self.profileImage sd_setBackgroundImageWithURL:imageFileUrl1 forState:UIControlStateNormal];
     }
    
+}
+
+- (IBAction)profileButtonPressed:(id)sender{
+    [self.tabBarController setSelectedIndex:2];
 }
 
 @end

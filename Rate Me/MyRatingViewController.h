@@ -18,8 +18,8 @@
 //User Props
 @property (strong, nonatomic) PFUser *currentUser;
 @property (strong, nonatomic) PFObject *userObject;
-@property (strong, nonatomic) IBOutlet UIImageView *profileImage;
 @property (strong, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (strong, nonatomic) IBOutlet UIButton *profileImage;
 
 //User Ratings
 @property (nonatomic) float userAverageRating;
