@@ -546,6 +546,10 @@
                                     <action selector="profileButtonPressed:" destination="KFO-SU-OeN" eventType="touchUpInside" id="MPU-p6-mMz"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e55-0f-wZt" customClass="BarChartView">
+                                <rect key="frame" x="97" y="441" width="196" height="131"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -554,6 +558,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="averageRatingLabel" destination="AbD-e5-zjf" id="fVB-5E-WjB"/>
+                        <outlet property="barChart" destination="e55-0f-wZt" id="u2e-tY-sP0"/>
                         <outlet property="girlRatingLabel" destination="8K2-L7-Kyo" id="6VU-ET-rB7"/>
                         <outlet property="guyRatingLabel" destination="NFX-g3-nfD" id="iCt-LE-Aqc"/>
                         <outlet property="numberOfRatingsLabel" destination="ahn-fk-FIz" id="FRf-eu-alI"/>

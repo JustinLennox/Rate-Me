@@ -52,6 +52,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self loadProfileImage];
                 [self setRating];
+                [self setBarCharts];
             });
             
         }
@@ -168,6 +169,42 @@
 
 - (IBAction)profileButtonPressed:(id)sender{
     [self.tabBarController setSelectedIndex:2];
+}
+
+#pragma mark- Bar Chart Methods
+
+-(void)setBarCharts{
+    
+    UIColor *flatYellow = [UIColor colorWithRed:250.0f/255.0f green:212.0f/255.0f blue:107.0f/255.0f alpha:1.0f];
+    UIColor *flatBlue = [UIColor colorWithRed:(2.00f/255.00f) green:(186.00f/255.00f) blue:(242.00f/255.00f) alpha:1.0f];
+    // Generate properly formatted data to give to the bar chart
+    NSArray *array = [self.barChart createChartDataWithTitles:[NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", nil]
+                                                  values:[NSArray arrayWithObjects:@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", nil]
+                                                  colors:[NSArray arrayWithObjects:flatYellow, flatYellow, flatYellow, flatYellow, flatYellow, flatYellow, flatYellow, flatYellow, flatYellow, flatYellow,  nil]
+                                             labelColors:[NSArray arrayWithObjects:flatBlue, flatBlue, flatBlue, flatBlue, flatBlue, flatBlue, flatBlue, flatBlue, flatBlue, flatBlue, nil]];
+
+    [self.barChart setupBarViewStyle:BarStyleFlat];
+    
+    //Set the Shape of the Bars (Rounded or Squared) - Rounded is default
+    [self.barChart setupBarViewShape:BarShapeSquared];
+    
+    //Set the Drop Shadow of the Bars (Light, Heavy, or None) - Light is default
+    [self.barChart setupBarViewShadow:BarShadowNone];
+    
+    //Set the Initial Animation of the Bars (Rise, Fade, Float, or None) - Rise is default
+    [self.barChart setupBarViewAnimation:BarAnimationRise];
+    
+    // Generate the bar chart using the formatted data
+    [self.barChart setDataWithArray:array
+                      showAxis:DisplayBothAxes
+                     withColor:[UIColor darkGrayColor]
+                      withFont:[UIFont systemFontOfSize:11]
+       shouldPlotVerticalLines:YES];
+}
+
+- (BOOL)barChartItemDisplaysPopoverOnTap {
+    // Return YES to enable popups above bars when they're tapped. Popups will show the exact value of the bar. Return NO to disable popups. The default is YES.
+    return YES;
 }
 
 @end

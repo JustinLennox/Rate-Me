@@ -12,6 +12,7 @@
 #import "SDWebImage/UIImageView+WebCache.h"
 #import "UIImageView+WebCache.h"
 #import "UIButton+WebCache.h"
+#import "BarChartView.h"
 
 @interface MyRatingViewController : UIViewController
 
@@ -47,5 +48,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *didYouKnowTextLabel;
 @property (strong, nonatomic) NSArray *didYouKnowInfo;
 
+//Bar Chart Properties
+
+@property (strong, nonatomic) IBOutlet BarChartView *barChart;
 
 @end
