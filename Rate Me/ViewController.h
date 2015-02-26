@@ -11,24 +11,34 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface ViewController : UIViewController <UITextFieldDelegate>
+
+
+
+//Master Login Buttons
+@property (strong, nonatomic) IBOutlet UIButton *twitterLoginButton;
+@property (strong, nonatomic) IBOutlet UIButton *emailLoginButton;
+@property (strong, nonatomic) IBOutlet UIButton *facebookLoginButton;
+@property (strong, nonatomic) IBOutlet UIButton *googlePlusLoginButton;
+@property (strong, nonatomic) IBOutlet UIButton *changeLoginButton;
+
+//Master Login Buttons Pressed
+- (IBAction)twitterLoginPressed:(id)sender;
+- (IBAction)emailLoginPressed:(id)sender;
+- (IBAction)facebookLoginPressed:(id)sender;
+- (IBAction)googlePlusLoginPressed:(id)sender;
+
+- (IBAction)changeLoginButtonPressed:(id)sender;
+
+
+//Email Login Stuff
 @property (strong, nonatomic) IBOutlet UITextField *usernameField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordField;
-@property (strong, nonatomic) IBOutlet UIButton *maleButton;
-@property (strong, nonatomic) IBOutlet UIButton *femaleButton;
-@property (strong, nonatomic) NSString *userGender;
 @property (strong, nonatomic) IBOutlet UITextField *emailField;
 @property (strong, nonatomic) IBOutlet UIButton *loginButton;
-
 @property (strong, nonatomic) IBOutlet UIButton *signupButton;
 
 - (IBAction)signUpButtonPressed:(id)sender;
-- (IBAction)femaleButtonPressed:(id)sender;
-- (IBAction)maleButtonPressed:(id)sender;
 - (IBAction)loginButtonPressed:(id)sender;
-
-
-@property (strong, nonatomic) IBOutlet UISwitch *genderSwitch;
-- (IBAction)switchTouched:(id)sender;
 
 @end
 

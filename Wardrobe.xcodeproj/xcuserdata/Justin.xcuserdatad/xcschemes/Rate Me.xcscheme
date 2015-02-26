@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D03812571A4E036500C5BE43"
-               BuildableName = "Rate Me.app"
-               BlueprintName = "Rate Me"
-               ReferencedContainer = "container:Rate Me.xcodeproj">
+               BuildableName = "Wardrobe.app"
+               BlueprintName = "Wardrobe"
+               ReferencedContainer = "container:Wardrobe.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D03812701A4E036600C5BE43"
-               BuildableName = "Rate MeTests.xctest"
-               BlueprintName = "Rate MeTests"
-               ReferencedContainer = "container:Rate Me.xcodeproj">
+               BuildableName = "WardrobeTests.xctest"
+               BlueprintName = "WardrobeTests"
+               ReferencedContainer = "container:Wardrobe.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D03812701A4E036600C5BE43"
-               BuildableName = "Rate MeTests.xctest"
-               BlueprintName = "Rate MeTests"
-               ReferencedContainer = "container:Rate Me.xcodeproj">
+               BuildableName = "WardrobeTests.xctest"
+               BlueprintName = "WardrobeTests"
+               ReferencedContainer = "container:Wardrobe.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D03812571A4E036500C5BE43"
-            BuildableName = "Rate Me.app"
-            BlueprintName = "Rate Me"
-            ReferencedContainer = "container:Rate Me.xcodeproj">
+            BuildableName = "Wardrobe.app"
+            BlueprintName = "Wardrobe"
+            ReferencedContainer = "container:Wardrobe.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D03812571A4E036500C5BE43"
-            BuildableName = "Rate Me.app"
-            BlueprintName = "Rate Me"
-            ReferencedContainer = "container:Rate Me.xcodeproj">
+            BuildableName = "Wardrobe.app"
+            BlueprintName = "Wardrobe"
+            ReferencedContainer = "container:Wardrobe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D03812571A4E036500C5BE43"
-            BuildableName = "Rate Me.app"
-            BlueprintName = "Rate Me"
-            ReferencedContainer = "container:Rate Me.xcodeproj">
+            BuildableName = "Wardrobe.app"
+            BlueprintName = "Wardrobe"
+            ReferencedContainer = "container:Wardrobe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -19,11 +19,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    //Set the textfield delegates
     self.usernameField.delegate = self;
     self.passwordField.delegate = self;
     self.emailField.delegate = self;
-    
-    self.genderSwitch.onTintColor = [UIColor colorWithRed:(147.00f/255.00f) green:(164.00f/255.00f) blue:(170.00f/255.00f) alpha:1.0f];
     
 }
 
@@ -49,6 +48,7 @@
     [self.signupButton setBackgroundImage:[UIImage imageNamed:@"3DYellowButtonPressed.png"] forState:UIControlStateHighlighted];
     [self.signupButton setBackgroundImage:[UIImage imageNamed:@"3DYellowButtonPressed.png"] forState:UIControlStateSelected];
     
+    //Set up TextFields for Email Login
     [self.usernameField setLeftViewMode:UITextFieldViewModeAlways];
     UIImageView *userIcon = [[UIImageView alloc] initWithFrame:CGRectMake(5, 0, 15, 15)];
     userIcon.image = [UIImage imageNamed:@"user-50.png"];
@@ -56,6 +56,7 @@
     [paddingView addSubview:userIcon];
     self.usernameField.leftView = paddingView;
     self.usernameField.borderStyle = UITextBorderStyleRoundedRect;
+    self.usernameField.alpha = 0.0f;
     
     [self.passwordField setLeftViewMode:UITextFieldViewModeAlways];
     UIImageView *userIcon2 = [[UIImageView alloc] initWithFrame:CGRectMake(3, 0, 15, 15)];
@@ -64,6 +65,7 @@
     [paddingView2 addSubview:userIcon2];
     self.passwordField.leftView = paddingView2;
     self.passwordField.borderStyle = UITextBorderStyleRoundedRect;
+    self.passwordField.alpha = 0.0f;
     
     [self.emailField setLeftViewMode:UITextFieldViewModeAlways];
     UIImageView *userIcon3 = [[UIImageView alloc] initWithFrame:CGRectMake(5, 0, 15, 15)];
@@ -72,7 +74,17 @@
     [paddingView3 addSubview:userIcon3];
     self.emailField.leftView = paddingView3;
     self.emailField.borderStyle = UITextBorderStyleRoundedRect;
+    self.emailField.alpha = 0.0f;
+    
+    //Set all the email login stuff's alpha to 0 so we don't see it. We only want to see this stuff when the user wants to login with email
+    self.emailField.alpha = 0.0f;
+    self.passwordField.alpha = 0.0f;
+    self.usernameField.alpha = 0.0f;
+    self.loginButton.alpha = 0.0f;
+    self.signupButton.alpha = 0.0f;
+    
 
+    self.changeLoginButton.alpha = 0.0f;
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -80,11 +92,69 @@
     [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
+#pragma mark- Master Login Methods
+
+- (IBAction)twitterLoginPressed:(id)sender {
+    [self changeMasterLoginButtonAlphas];
+}
+
+- (IBAction)emailLoginPressed:(id)sender {
+    [self changeMasterLoginButtonAlphas];
+    
+    self.emailField.alpha = 1.0f;
+    self.passwordField.alpha = 1.0f;
+    self.usernameField.alpha = 1.0f;
+    self.loginButton.alpha = 1.0f;
+    self.signupButton.alpha = 1.0f;
+    
+}
+
+- (IBAction)facebookLoginPressed:(id)sender {
+    [self changeMasterLoginButtonAlphas];
+}
+
+- (IBAction)googlePlusLoginPressed:(id)sender {
+    [self changeMasterLoginButtonAlphas];
+}
+
+- (IBAction)changeLoginButtonPressed:(id)sender {
+    [self changeMasterLoginButtonAlphas];
+    
+    //Hide the email login stuff
+    self.emailField.alpha = 0.0f;
+    self.passwordField.alpha = 0.0f;
+    self.usernameField.alpha = 0.0f;
+    self.loginButton.alpha = 0.0f;
+    self.signupButton.alpha = 0.0f;
+    
+    
+}
+
+-(void)changeMasterLoginButtonAlphas{
+    
+    if(self.emailLoginButton.alpha == 1.0f){
+        //This means we can see the master login buttons and want to hide them.
+        self.facebookLoginButton.alpha = 0.0f;
+        self.googlePlusLoginButton.alpha = 0.0f;
+        self.twitterLoginButton.alpha = 0.0f;
+        self.emailLoginButton.alpha = 0.0f;
+        self.changeLoginButton.alpha = 1.0f;
+    }else{
+        //This means we can't see the master login buttons and we want to show them.
+        self.facebookLoginButton.alpha = 1.0f;
+        self.googlePlusLoginButton.alpha = 1.0f;
+        self.twitterLoginButton.alpha = 1.0f;
+        self.emailLoginButton.alpha = 1.0f;
+        self.changeLoginButton.alpha = 0.0f;
+    }
+}
+
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
     return NO;
 }
 
+#pragma mark- Email Signup and Login Methods
 - (IBAction)signUpButtonPressed:(id)sender {
     
     
@@ -92,8 +162,8 @@
     NSString *password = [self.passwordField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSString *email = [self.emailField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
-    if ([username length] == 0 || [password length] == 0 || [email length] == 0 || !self.userGender) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops!" message:@"Make sure you enter a username, password, email address, and choose your gender!" delegate:nil cancelButtonTitle:@"Ok :D" otherButtonTitles: nil];
+    if ([username length] == 0 || [password length] == 0 || [email length] == 0) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops!" message:@"Make sure you enter a username, password, and email address!" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
         [alertView show];
     }
     
@@ -106,22 +176,12 @@
         newUser.username = username;
         newUser.password = password;
         newUser.email = email;
-        [newUser setObject:self.userGender forKey:@"Gender"];
         
-        NSArray *emptyArray = [[NSArray alloc] init];
-        NSDictionary *emptyDictionary = [[NSDictionary alloc] init];
+        PFFile *emptyPicture = [[PFFile alloc] init];
         
         PFObject *userObject = [PFObject objectWithClassName:@"UserObjects"];
         [userObject setObject:newUser.username forKey:@"username"];
-        [userObject setObject:emptyArray forKey:@"overallRatingArray"];
-        [userObject setObject:emptyArray forKey:@"femaleRatingArray"];
-        [userObject setObject:emptyArray forKey:@"maleRatingArray"];
-        [userObject setObject:@0 forKey:@"reports"];
-        [userObject setObject:@"YES" forKey:@"commentsEnabled"];
-        [userObject setObject:@"NO" forKey:@"hideRating"];
-        [userObject setObject:emptyDictionary forKey:@"commentsDictionary"];
-        [userObject setObject:self.userGender forKey:@"Gender"];
-
+        [userObject setObject:emptyPicture forKey:@"profilePicture"];
         
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (error){
@@ -146,24 +206,6 @@
         
         
     }
-}
-
-- (IBAction)femaleButtonPressed:(id)sender {
-    
-    self.userGender = @"Female";
-    
-    self.genderSwitch.onTintColor = [UIColor colorWithRed:(248.00f/255.00f) green:(69.00f/255.00f) blue:(69.00f/255.00f) alpha:1.0f];
-    
-        self.genderSwitch.on = YES;
-}
-
-- (IBAction)maleButtonPressed:(id)sender {
-    
-    self.userGender = @"Male";
-    
-    self.genderSwitch.tintColor = [UIColor colorWithRed:(2.00f/255.00f) green:(186.00f/255.00f) blue:(242.00f/255.00f) alpha:1.0f];
-    
-    self.genderSwitch.on = NO;
 }
 
 - (IBAction)loginButtonPressed:(id)sender {
@@ -192,6 +234,8 @@
     }
 
 }
+
+#pragma mark- Text and Keyboard Methods
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -223,21 +267,5 @@
 }
 
 
-- (IBAction)switchTouched:(id)sender {
-    
-    if(self.genderSwitch.on == YES)
-    {
-        self.userGender = @"Female";
-        
-        /*self.femaleButton.titleLabel.textColor = [UIColor colorWithRed:(248.00f/255.00f) green:(69.00f/255.00f) blue:(69.00f/255.00f) alpha:1.0f];
-        self.maleButton.titleLabel.textColor = [UIColor colorWithRed:(147.00f/255.00f) green:(164.00f/255.00f) blue:(170.00f/255.00f) alpha:1.0f];*/
-        self.genderSwitch.onTintColor = [UIColor colorWithRed:(248.00f/255.00f) green:(69.00f/255.00f) blue:(69.00f/255.00f) alpha:1.0f];
-    }else
-    {
-        self.userGender = @"Male";
-        /*self.maleButton.titleLabel.textColor = [UIColor colorWithRed:(2.00f/255.00f) green:(186.00f/255.00f) blue:(242.00f/255.00f) alpha:1.0f];
-        self.femaleButton.titleLabel.textColor = [UIColor colorWithRed:(147.00f/255.00f) green:(164.00f/255.00f) blue:(170.00f/255.00f) alpha:1.0f];*/
-        self.genderSwitch.tintColor = [UIColor colorWithRed:(2.00f/255.00f) green:(186.00f/255.00f) blue:(242.00f/255.00f) alpha:1.0f];
-    }
-}
+
 @end

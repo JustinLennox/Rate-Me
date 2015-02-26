@@ -51,8 +51,8 @@
             self.userObject = [objects objectAtIndex:0];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self loadProfileImage];
-                [self setRating];
-                [self setBarCharts];
+                //[self setRating];
+                //[self setBarCharts];
             });
             
         }

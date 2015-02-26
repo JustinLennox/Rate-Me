@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>5FC7ED39-BE6E-4E54-8D4D-F12677B2B3BF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Wardrobe</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>98C8B42C6DE8A8F26126A7C6108CDE7E390C50C9</key>
+		<string>https://github.com/JustinLennox/Rate-Me.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Wardrobe.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>98C8B42C6DE8A8F26126A7C6108CDE7E390C50C9</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/JustinLennox/Rate-Me.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>98C8B42C6DE8A8F26126A7C6108CDE7E390C50C9</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>98C8B42C6DE8A8F26126A7C6108CDE7E390C50C9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Rate%20Me%20copy</string>
+		</dict>
+	</array>
+</dict>
+</plist>

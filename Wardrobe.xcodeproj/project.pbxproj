@@ -156,7 +156,7 @@
 		D00557961A658E1A0036C661 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		D00557971A658E1A0036C661 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		D00557981A658E1A0036C661 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
-		D03812581A4E036500C5BE43 /* Rate Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rate Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D03812581A4E036500C5BE43 /* Wardrobe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wardrobe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D038125C1A4E036500C5BE43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D038125D1A4E036500C5BE43 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D038125F1A4E036500C5BE43 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 		D03812661A4E036500C5BE43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D03812681A4E036600C5BE43 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D038126B1A4E036600C5BE43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		D03812711A4E036600C5BE43 /* Rate MeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rate MeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D03812711A4E036600C5BE43 /* WardrobeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WardrobeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D03812761A4E036600C5BE43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D03812771A4E036600C5BE43 /* Rate_MeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Rate_MeTests.m; sourceTree = "<group>"; };
 		D03812811A4E07BE00C5BE43 /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
@@ -381,8 +381,8 @@
 				D038129D1A4E1BF900C5BE43 /* CoreTelephony.framework */,
 				D038129B1A4E1BF400C5BE43 /* UIKit.framework */,
 				D03812991A4E1BEE00C5BE43 /* QuartzCore.framework */,
-				D038125A1A4E036500C5BE43 /* Rate Me */,
-				D03812741A4E036600C5BE43 /* Rate MeTests */,
+				D038125A1A4E036500C5BE43 /* Wardrobe */,
+				D03812741A4E036600C5BE43 /* WardrobeTests */,
 				D03812591A4E036500C5BE43 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -390,13 +390,13 @@
 		D03812591A4E036500C5BE43 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D03812581A4E036500C5BE43 /* Rate Me.app */,
-				D03812711A4E036600C5BE43 /* Rate MeTests.xctest */,
+				D03812581A4E036500C5BE43 /* Wardrobe.app */,
+				D03812711A4E036600C5BE43 /* WardrobeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D038125A1A4E036500C5BE43 /* Rate Me */ = {
+		D038125A1A4E036500C5BE43 /* Wardrobe */ = {
 			isa = PBXGroup;
 			children = (
 				D03812651A4E036500C5BE43 /* Main.storyboard */,
@@ -427,6 +427,7 @@
 				D0037FA21A7F8E4600B5A4C2 /* UI */,
 				D038125B1A4E036500C5BE43 /* Supporting Files */,
 			);
+			name = Wardrobe;
 			path = "Rate Me";
 			sourceTree = "<group>";
 		};
@@ -449,12 +450,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D03812741A4E036600C5BE43 /* Rate MeTests */ = {
+		D03812741A4E036600C5BE43 /* WardrobeTests */ = {
 			isa = PBXGroup;
 			children = (
 				D03812771A4E036600C5BE43 /* Rate_MeTests.m */,
 				D03812751A4E036600C5BE43 /* Supporting Files */,
 			);
+			name = WardrobeTests;
 			path = "Rate MeTests";
 			sourceTree = "<group>";
 		};
@@ -539,9 +541,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D03812571A4E036500C5BE43 /* Rate Me */ = {
+		D03812571A4E036500C5BE43 /* Wardrobe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D038127B1A4E036600C5BE43 /* Build configuration list for PBXNativeTarget "Rate Me" */;
+			buildConfigurationList = D038127B1A4E036600C5BE43 /* Build configuration list for PBXNativeTarget "Wardrobe" */;
 			buildPhases = (
 				D03812541A4E036500C5BE43 /* Sources */,
 				D03812551A4E036500C5BE43 /* Frameworks */,
@@ -551,14 +553,14 @@
 			);
 			dependencies = (
 			);
-			name = "Rate Me";
+			name = Wardrobe;
 			productName = "Rate Me";
-			productReference = D03812581A4E036500C5BE43 /* Rate Me.app */;
+			productReference = D03812581A4E036500C5BE43 /* Wardrobe.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D03812701A4E036600C5BE43 /* Rate MeTests */ = {
+		D03812701A4E036600C5BE43 /* WardrobeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D038127E1A4E036600C5BE43 /* Build configuration list for PBXNativeTarget "Rate MeTests" */;
+			buildConfigurationList = D038127E1A4E036600C5BE43 /* Build configuration list for PBXNativeTarget "WardrobeTests" */;
 			buildPhases = (
 				D038126D1A4E036600C5BE43 /* Sources */,
 				D038126E1A4E036600C5BE43 /* Frameworks */,
@@ -569,9 +571,9 @@
 			dependencies = (
 				D03812731A4E036600C5BE43 /* PBXTargetDependency */,
 			);
-			name = "Rate MeTests";
+			name = WardrobeTests;
 			productName = "Rate MeTests";
-			productReference = D03812711A4E036600C5BE43 /* Rate MeTests.xctest */;
+			productReference = D03812711A4E036600C5BE43 /* WardrobeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -598,7 +600,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D03812531A4E036500C5BE43 /* Build configuration list for PBXProject "Rate Me" */;
+			buildConfigurationList = D03812531A4E036500C5BE43 /* Build configuration list for PBXProject "Wardrobe" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -611,8 +613,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D03812571A4E036500C5BE43 /* Rate Me */,
-				D03812701A4E036600C5BE43 /* Rate MeTests */,
+				D03812571A4E036500C5BE43 /* Wardrobe */,
+				D03812701A4E036600C5BE43 /* WardrobeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -724,7 +726,7 @@
 /* Begin PBXTargetDependency section */
 		D03812731A4E036600C5BE43 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D03812571A4E036500C5BE43 /* Rate Me */;
+			target = D03812571A4E036500C5BE43 /* Wardrobe */;
 			targetProxy = D03812721A4E036600C5BE43 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -838,8 +840,9 @@
 				INFOPLIST_FILE = "Rate Me/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Wardrobe;
 				PROVISIONING_PROFILE = "";
+				TEST_HOST = "wardrobe.app/wardrobe ";
 			};
 			name = Debug;
 		};
@@ -854,8 +857,9 @@
 				INFOPLIST_FILE = "Rate Me/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Wardrobe;
 				PROVISIONING_PROFILE = "";
+				TEST_HOST = "wardrobe.app/wardrobe ";
 			};
 			name = Release;
 		};
@@ -870,8 +874,8 @@
 				);
 				INFOPLIST_FILE = "Rate MeTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rate Me.app/Rate Me";
+				PRODUCT_NAME = WardrobeTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wardrobe.app/Wardrobe";
 			};
 			name = Debug;
 		};
@@ -882,15 +886,15 @@
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/**";
 				INFOPLIST_FILE = "Rate MeTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rate Me.app/Rate Me";
+				PRODUCT_NAME = WardrobeTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wardrobe.app/Wardrobe";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D03812531A4E036500C5BE43 /* Build configuration list for PBXProject "Rate Me" */ = {
+		D03812531A4E036500C5BE43 /* Build configuration list for PBXProject "Wardrobe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D03812791A4E036600C5BE43 /* Debug */,
@@ -899,7 +903,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D038127B1A4E036600C5BE43 /* Build configuration list for PBXNativeTarget "Rate Me" */ = {
+		D038127B1A4E036600C5BE43 /* Build configuration list for PBXNativeTarget "Wardrobe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D038127C1A4E036600C5BE43 /* Debug */,
@@ -908,7 +912,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D038127E1A4E036600C5BE43 /* Build configuration list for PBXNativeTarget "Rate MeTests" */ = {
+		D038127E1A4E036600C5BE43 /* Build configuration list for PBXNativeTarget "WardrobeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D038127F1A4E036600C5BE43 /* Debug */,
