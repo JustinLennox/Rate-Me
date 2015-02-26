@@ -111,6 +111,39 @@
 
 - (IBAction)facebookLoginPressed:(id)sender {
     [self changeMasterLoginButtonAlphas];
+    
+   /* [PFFacebookUtils logInWithPermissions:nil block:^(PFUser *user, NSError *error) {
+        if (!user) {
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Uh oh!" message:@"The Facebook login was unsuccessful. If you didn't cancel it on purpose, make sure you are connected to the internet. If you are, you may have to reset your phone's Facebook privacy settings under Settings>Privacy>Facebook!" delegate:nil cancelButtonTitle:@"Ok :D" otherButtonTitles: nil];
+            [alertView show];
+        } else if (user.isNew) {
+            [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                if (!error) {
+                    // Store the current user's Facebook ID on the user
+                    [[PFUser currentUser] setObject:[result objectForKey:@"id"]
+                                             forKey:@"fbId"];
+                    [[PFUser currentUser] setObject:[result objectForKey:@"name"]
+                                             forKey:@"username"];
+                    [[PFUser currentUser] saveInBackground];
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                }}];
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstTime"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        } else {
+            [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                if (!error) {
+                    // Store the current user's Facebook ID on the user
+                    [[PFUser currentUser] setObject:[result objectForKey:@"id"]
+                                             forKey:@"fbId"];
+                    [[PFUser currentUser] setObject:[result objectForKey:@"name"]
+                                             forKey:@"displayName"];
+                    [[PFUser currentUser] saveInBackground];
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                }
+            }];
+        }
+    }];*/
+
 }
 
 - (IBAction)googlePlusLoginPressed:(id)sender {

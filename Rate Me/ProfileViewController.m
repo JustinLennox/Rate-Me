@@ -28,7 +28,7 @@
         [self performSegueWithIdentifier:@"showLogin" sender:self];
     }
     
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(250.00f/255.00f) green:(212.00f/255.00f) blue:(107.00f/255.00f) alpha:1.0f];
+    self.navigationController.navigationBar.barTintColor = [UIColor wardrobeRed];
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationItem.title = @"Profile";

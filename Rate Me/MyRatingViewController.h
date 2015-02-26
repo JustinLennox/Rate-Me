@@ -13,6 +13,7 @@
 #import "UIImageView+WebCache.h"
 #import "UIButton+WebCache.h"
 #import "BarChartView.h"
+#import "UIColor+UIColor.h"
 
 @interface MyRatingViewController : UIViewController <UIScrollViewDelegate>
 

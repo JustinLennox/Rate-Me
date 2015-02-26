@@ -67,6 +67,7 @@
 		D03812C01A4F710A00C5BE43 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D03812BF1A4F710A00C5BE43 /* libz.dylib */; };
 		D03812C21A4F711A00C5BE43 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D03812C11A4F711A00C5BE43 /* libsqlite3.dylib */; };
 		D06D177B1A55DD470039AE27 /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D06D177A1A55DD470039AE27 /* CommentsViewController.m */; };
+		D08B64F01A9EFE19000D117F /* UIColor+UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = D08B64EF1A9EFE19000D117F /* UIColor+UIColor.m */; };
 		D09F75A11A7F8764003177EB /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09F75A01A7F8764003177EB /* Parse.framework */; };
 		D09F75A21A7F8963003177EB /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09F75A01A7F8764003177EB /* Parse.framework */; };
 		D09F75A51A7F89CF003177EB /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D09F75A31A7F89BC003177EB /* ParseUI.framework */; };
@@ -201,6 +202,8 @@
 		D03812C11A4F711A00C5BE43 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		D06D17791A55DD470039AE27 /* CommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsViewController.h; sourceTree = "<group>"; };
 		D06D177A1A55DD470039AE27 /* CommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsViewController.m; sourceTree = "<group>"; };
+		D08B64EE1A9EFE19000D117F /* UIColor+UIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+UIColor.h"; path = "../UIColor+UIColor.h"; sourceTree = "<group>"; };
+		D08B64EF1A9EFE19000D117F /* UIColor+UIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+UIColor.m"; path = "../UIColor+UIColor.m"; sourceTree = "<group>"; };
 		D09F75A01A7F8764003177EB /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		D09F75A31A7F89BC003177EB /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		D0A2D4AC1A7FB63500348148 /* 3DBlueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3DBlueButton.png; sourceTree = "<group>"; };
@@ -434,6 +437,8 @@
 		D038125B1A4E036500C5BE43 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D08B64EE1A9EFE19000D117F /* UIColor+UIColor.h */,
+				D08B64EF1A9EFE19000D117F /* UIColor+UIColor.m */,
 				D0F2186A1A9DD889002C2300 /* BarChart Library */,
 				D09F75A31A7F89BC003177EB /* ParseUI.framework */,
 				D00557771A658E1A0036C661 /* SDWebImage */,
@@ -668,6 +673,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0F2189B1A9DD8AA002C2300 /* BarChartEasyModelController.m in Sources */,
+				D08B64F01A9EFE19000D117F /* UIColor+UIColor.m in Sources */,
 				D0F218961A9DD889002C2300 /* PlotChartView.m in Sources */,
 				D0F218921A9DD889002C2300 /* UIViewSizeShortcuts.m in Sources */,
 				D0F2188C1A9DD889002C2300 /* BarView.m in Sources */,
